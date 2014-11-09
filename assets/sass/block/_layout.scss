@@ -1,0 +1,31 @@
+#cssdig {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    min-width: 960px;
+    background: $color-background;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+#report-data {
+    display: flex;
+    flex: 1;
+    padding-top: 40px;
+    background: url(../i/icon48.png) 18px 18px no-repeat;
+    background-size: 24px auto;
+}
+
+#report-properties,
+#report-css {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+    overflow-y: scroll;
+}

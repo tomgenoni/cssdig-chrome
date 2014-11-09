@@ -1,0 +1,56 @@
+#cssdig-form {
+
+    padding: 50px;
+    max-width: 540px;
+
+    ul {
+        margin: 0 0 20px;
+        padding: 0;
+    }
+
+    .success:before,
+    .fail:before {
+        display: block;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        font-size: 11px;
+    }
+
+    .success:before {
+        content: "Diggable";
+        font-weight: 700;
+    }
+    .fail:before {
+        content: "Undiggable";
+        font-weight: 700;
+    }
+
+    li {
+        list-style: none;
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+
+    h3 {
+        padding-bottom: 10px;
+    }
+
+    label {
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    .dig-report-active & {
+        display: none;
+    }
+
+    #empty-message {
+        border: 1px solid $color-primary;
+        padding: 10px;
+        text-align: center;
+        background: lighten($color-primary, 54%);
+        border-radius: 3px;
+    }
+}

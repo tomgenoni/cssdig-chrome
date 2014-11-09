@@ -1,0 +1,63 @@
+.btn {
+    line-height: 1;
+    font-weight: 700;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 3px;
+    background: #aaa;
+    color: #fff;
+    font-size: 11px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    &:hover {
+        background: $color-primary;
+        color: #fff;
+        outline: 0;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.btn--small {
+    font-size: 10px;
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+
+.btn--large {
+    font-size: 14px;
+    padding: 12px 24px 11px;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.btn--accent {
+    background: $color-primary;
+    box-shadow: 0 2px 0 darken($color-primary, 4%);
+    text-shadow: 0 1px 0 darken($color-primary, 4%);
+
+    &:hover {
+        background: darken($color-primary, 4%);
+        box-shadow: 0 2px 0 darken($color-primary, 8%);
+        text-shadow: 0 1px 0 darken($color-primary, 8%);
+    }
+}
+
+.btn--disabled,
+.btn--disabled:hover {
+    background: #000;
+    opacity: .15;
+    cursor: default;
+}
+
+.btn--full {
+    width: 100%;
+}

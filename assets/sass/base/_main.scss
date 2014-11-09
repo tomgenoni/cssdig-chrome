@@ -1,0 +1,33 @@
+$color-primary: #238fb2;
+
+body {
+    font: 13px "Lato", Helvetica, Arial, sans;
+    color: #444;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: #444;
+
+    &:hover {
+        color: #bbb;
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    height: 5px;
+    right: 15px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #aaa;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease-in-out;
+
+    &:hover {
+        color: #333;
+    }
+}
+

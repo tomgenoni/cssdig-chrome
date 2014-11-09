@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "CSS Dig",
+  "description": "Collect and analyze CSS.",
+  "version": "0.1",
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["js/local/background.js"],
+    "persistent": false
+  },
+  "icons": {
+    "16": "i/icon16.png",
+    "48": "i/icon48.png",
+    "128": "i/icon128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "i/icon19.png",
+      "38": "i/icon38.png"
+    },
+    "default_title": "CSS Dig"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["js/lib/jquery.min.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "html/dig.html",
+    "css/dig.css",
+    "i/icon48.png",
+    "js/lib/*.js",
+    "js/local/*.js"
+  ]
+}

@@ -1,0 +1,26 @@
+header {
+    border-bottom: 1px solid darken($color-background, 5%);
+    padding: 15px 20px 7px;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 5px;
+        left: 0;
+        right: 0;
+        background: $color-primary;
+    }
+}
+
+#logo {
+    letter-spacing: -1px;
+    font-weight: 700;
+    font-size: 22px;
+    -webkit-font-smoothing: antialiased;
+
+    span {
+        opacity: .7;
+    }
+}

@@ -1,0 +1,27 @@
+#cssdig-chrome {
+    visibility: hidden;
+    background: $color-background;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 0.5s ease-in-out;
+    width: 540px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 5px;
+        left: 0;
+        right: 0;
+        background: $color-primary;
+    }
+}
+
+#cssdig-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
