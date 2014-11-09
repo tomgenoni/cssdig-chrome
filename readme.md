@@ -1,7 +1,7 @@
 # CSS Dig for Chrome
 
 - [Install CSS Dig for Chrome](https://chrome.google.com/webstore/detail/css-dig/lpnhmlhomomelfkcjnkcacofhmggjmco)
-- [CSS Dig Home](http://cssdig.com]
+- [CSS Dig Home](http://cssdig.com)
 
 This Chrome Extension looks for stylesheets and style blocks on the webpage it's run against and groups declarations together for easy inspection. For example, you can see how many colors are used and how often. This can help you consolidate your styles and help with refactors. 
 
