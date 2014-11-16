@@ -37,7 +37,7 @@ function getData() {
             }
 
             // Remote call if needed.
-            var proxy = 'http://cssdig.com/p/';
+            var proxy = 'https://cssdig.com/p/';
             var proxy_url = proxy + '?url=' + value;
 
             $.getJSON( proxy_url, function(data){
