@@ -2,11 +2,11 @@
 
 ## v0.2
 
-### Feature
+**Feature**
 
 - Added HTTPS support
 
-### Bugs
+**Bugs**
 
 - Fixed empty `<style>` block bug
 
