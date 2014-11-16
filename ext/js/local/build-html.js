@@ -16,8 +16,11 @@ function getData() {
             var link_href = $(this).attr("href");
             links.push(link_href);
         } else if ( $(this).is( "style" ) ) {
-            var style = $(this).text()
-            links.push("styleblock:" + style)
+            var style = $(this).text();
+            // If <style> is not empty.
+            if ( !((jQuery.trim(style)).length==0) ) {
+                links.push("styleblock:" + style)
+            }
         }
     });
 

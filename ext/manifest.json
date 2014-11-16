@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "CSS Dig",
   "description": "Collect and analyze CSS.",
-  "version": "0.1",
+  "version": "0.2",
   "permissions": [
     "activeTab"
   ],
