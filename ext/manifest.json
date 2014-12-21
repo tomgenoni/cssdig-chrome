@@ -32,7 +32,6 @@
     "html/dig.html",
     "css/dig.css",
     "i/icon48.png",
-    "js/lib/*.js",
-    "js/local/*.js"
+    "js/all.js"
   ]
 }
