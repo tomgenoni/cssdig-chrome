@@ -19,6 +19,7 @@ gulp.task('scripts', function() {
   gulp.src([
     './src/js/lib/jquery.min.js',
     './src/js/lib/cssbeautify.js',
+    './src/js/lib/specificity.js',
     './src/js/lib/jquery.highlight.js',
     './src/js/local/helpers.js',
     './src/js/local/build-html.js',
@@ -49,6 +50,7 @@ gulp.task('compass', function() {
 gulp.task('watch', function() {
   // watch task for sass
   gulp.watch('./assets/sass/*.scss', ['compass']);
+  gulp.watch('./src/js/**/*.js', ['scripts']);
 
 });
 
