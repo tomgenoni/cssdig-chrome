@@ -4,67 +4,145 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <script src="tablesorter.js"></script>
   <script src="specificity.js"></script>
   <script src="cssom.js"></script>
   <script>
 
-  // $(document).ready(function(){
-  //   var foo = SPECIFICITY.calculate('ul#nav li.active a');
-  //   console.log(foo[0].specificity);
-  //   console.log(foo[0].parts.length);
+  $(document).ready(function(){
 
-  //   console.log("");
 
-  //   var foo = SPECIFICITY.calculate('ul#nav li.active a.foo');
-  //   console.log(foo[0].specificity);
-  //   console.log(foo[0].parts.length);
+    var css = ".foo .bar:hover, div, .foo { bar:foo; } #gun #dart #board { bar:foo; } @media (max-width: 600px) { .facet .sidebar, .foo { display: none; } }";
+    var selectorsArr = CSSOM.parse(css);
+    var allSelectorsArr = [];
 
-  // });
+    $.each( selectorsArr.cssRules, function(i) {
+      // Assume it's a not in a media block.
+      var selectorText = $(this)[0].selectorText;
+      // If it's a media block.
+      if ( $(this)[0].media ) {
+        var selectorText = $(this)[0].cssRules[0].selectorText;
+      }
+      // Create array with selectorText as it may have commas.
+      var arr = selectorText.split(',');
+      allSelectorsArr.push.apply(allSelectorsArr, arr);
+    });
 
-$(document).ready(function(){
+    // Remove extra whitespace around selector, not sure where it's coming from.
+    $.each( allSelectorsArr, function(i) {
+      allSelectorsArr[i] = allSelectorsArr[i].trim();
+    });
 
-  var css = ".foo .bar:hover, div, .foo { bar:foo; } .gun { bar:foo; } @media (max-width: 600px) { .facet .sidebar, .foo { display: none; } }";
-  var selectorsArr = CSSOM.parse(css);
-  var allSelectorsArr = [];
+    var uniqueSelectorsArr = [];
+    $.each(allSelectorsArr, function(i, el){
+        if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
+    });
 
-  $.each( selectorsArr.cssRules, function(i) {
-    // Assume it's a not in a media block.
-    var selectorText = $(this)[0].selectorText;
-    // If it's a media block.
-    if ( $(this)[0].media ) {
-      var selectorText = $(this)[0].cssRules[0].selectorText;
-    }
-    // Create array with selectorText as it may have commas.
-    var arr = selectorText.split(',');
-    allSelectorsArr.push.apply(allSelectorsArr, arr);
-  });
+    $.each(uniqueSelectorsArr, function(i, el){
 
-  // Remove extra whitespace around selector, not sure where it's coming from.
-  $.each( allSelectorsArr, function(i) {
-    allSelectorsArr[i] = allSelectorsArr[i].trim();
-  });
+      var specificityHTML = "";
 
-  var uniqueSelectorsArr = [];
-  $.each(allSelectorsArr, function(i, el){
-      if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
-  });
-
-  $.each(uniqueSelectorsArr, function(i, el){
       var specificityObj = SPECIFICITY.calculate(el);
       var selector = specificityObj[0].selector;
       var specificity = specificityObj[0].specificity;
-      console.log(selector + ": " + specificity);
+
+      var arr = specificity.split(',');
+
+      $.each(arr, function(j){
+        specificityHTML = specificityHTML + "<span>" + arr[j] + "</span>";
+      });
+
+      $("#foo tbody").append("<tr><td>"+selector+"</td><td>"+specificityHTML+"</td></tr>")
+
+        $("#foo").tablesorter({
+          sortList: [[1,1]],
+          headers: {
+            0 : {
+              sorter: false
+            }
+          }
+        });
+
+
+    });
   });
-
-
-
-});
 
   </script>
 
+<style>
+
+body {
+  margin: 50px;
+}
+
+  table {
+    width: 500px;
+    margin: 50px;
+    font: 11px Lucida Grande;
+    border-collapse: collapse;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  tr {
+    border-bottom: 1px solid #eee;
+  }
+
+  tr th:last-child,
+  tr td:last-child  {
+    text-align: right;
+  }
+
+  td, th {
+    padding: 5px 0;
+  }
+
+  span {
+    padding: 3px;
+    background: #aaa;
+    border-radius: 2px;
+    color: #fff;
+    display: inline-block;
+    margin-left: 2px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+  }
+
+  tr span:nth-child(1) {
+    background: #cb4b16;
+  }
+
+  tr span:nth-child(2) {
+    background: #d33682;
+  }
+
+  tr span:nth-child(3) {
+    background: #268bd2;
+  }
+
+  tr span:nth-child(4) {
+    background: #2aa198;
+  }
+
+</style>
 
 </head>
 <body>
+
+<table id="foo">
+  <thead>
+    <tr>
+      <th>Selector</th>
+      <th>Specificity</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 
 </body>
 </html>
