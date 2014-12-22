@@ -7,7 +7,7 @@
     "activeTab"
   ],
   "background": {
-    "scripts": ["js/local/background.js"],
+    "scripts": ["js/background.js"],
     "persistent": false
   },
   "icons": {
@@ -25,7 +25,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["js/lib/jquery.min.js"]
+      "js": ["js/all.js"]
     }
   ],
   "web_accessible_resources": [
