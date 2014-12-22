@@ -20,11 +20,13 @@ gulp.task('scripts', function() {
     './src/js/lib/jquery.min.js',
     './src/js/lib/cssbeautify.js',
     './src/js/lib/specificity.js',
+    './src/js/lib/cssom.js',
     './src/js/lib/jquery.highlight.js',
     './src/js/local/helpers.js',
     './src/js/local/build-html.js',
     './src/js/local/button-control.js',
-    './src/js/local/css-highlight.js'
+    './src/js/local/css-highlight.js',
+    './src/js/local/tabs.js'
     ])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./ext/js/'))
@@ -49,7 +51,7 @@ gulp.task('compass', function() {
 
 gulp.task('watch', function() {
   // watch task for sass
-  gulp.watch('./assets/sass/*.scss', ['compass']);
+  gulp.watch('./assets/sass/**/*.scss', ['compass']);
   gulp.watch('./src/js/**/*.js', ['scripts']);
 
 });

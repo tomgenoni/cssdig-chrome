@@ -1,0 +1,29 @@
+.tabs {
+
+  .tabs-nav {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 10px;
+    position: relative;
+    margin-right: 20px;
+    left: 0;
+    display: flex;
+
+    li {
+      border-bottom: none;
+      position: relative;
+    }
+    li a {
+      display: block;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 5px 10px 10px;
+      color: #666;
+    }
+    li.active {
+      box-shadow: 0 2px 0 $color-primary;
+    }
+    li.active a {
+      color: #333;
+    }
+  }
+}

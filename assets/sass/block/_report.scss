@@ -9,7 +9,14 @@
     }
 }
 
-#report-properties,
+#report-properties {
+    padding: 10px 0 20px;
+
+    > div {
+        padding-right: 20px;
+    }
+}
+
 #report-css {
     padding: 20px 0 20px 20px;
 

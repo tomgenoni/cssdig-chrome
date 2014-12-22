@@ -3,7 +3,9 @@
     flex-direction: column;
     height: 100%;
     min-width: 960px;
-    background: $color-background;
+    background: $color-background url(../i/icon48.png) 20px 20px no-repeat;
+    background-size: 24px auto;
+    padding: 60px 0 0 20px;
 }
 
 header {
@@ -14,9 +16,6 @@ header {
 #report-data {
     display: flex;
     flex: 1;
-    padding-top: 40px;
-    background: url(../i/icon48.png) 18px 18px no-repeat;
-    background-size: 24px auto;
 }
 
 #report-properties,

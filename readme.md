@@ -15,6 +15,7 @@ It works on most websites but there are some limitations.
 
 If the extension fails to complete check the Javascript Console to view any errors. I'm working on better error catching.
 
-## Libraries
+## Libraries Used
 
 - [CSS Beautify](https://github.com/senchalabs/cssbeautify)
+- [CSSOM](https://github.com/NV/CSSOM)
