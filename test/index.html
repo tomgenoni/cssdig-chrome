@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <script src="specificity.js"></script>
+  <script src="cssom.js"></script>
+  <script>
+
+  // $(document).ready(function(){
+  //   var foo = SPECIFICITY.calculate('ul#nav li.active a');
+  //   console.log(foo[0].specificity);
+  //   console.log(foo[0].parts.length);
+
+  //   console.log("");
+
+  //   var foo = SPECIFICITY.calculate('ul#nav li.active a.foo');
+  //   console.log(foo[0].specificity);
+  //   console.log(foo[0].parts.length);
+
+  // });
+
+$(document).ready(function(){
+
+  var css = ".foo .bar:hover, div, .foo { bar:foo; } .gun { bar:foo; } @media (max-width: 600px) { .facet .sidebar, .foo { display: none; } }";
+  var selectorsArr = CSSOM.parse(css);
+  var allSelectorsArr = [];
+
+  $.each( selectorsArr.cssRules, function(i) {
+    // Assume it's a not in a media block.
+    var selectorText = $(this)[0].selectorText;
+    // If it's a media block.
+    if ( $(this)[0].media ) {
+      var selectorText = $(this)[0].cssRules[0].selectorText;
+    }
+    // Create array with selectorText as it may have commas.
+    var arr = selectorText.split(',');
+    allSelectorsArr.push.apply(allSelectorsArr, arr);
+  });
+
+  // Remove extra whitespace around selector, not sure where it's coming from.
+  $.each( allSelectorsArr, function(i) {
+    allSelectorsArr[i] = allSelectorsArr[i].trim();
+  });
+
+  var uniqueSelectorsArr = [];
+  $.each(allSelectorsArr, function(i, el){
+      if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
+  });
+
+  $.each(uniqueSelectorsArr, function(i, el){
+      var specificityObj = SPECIFICITY.calculate(el);
+      var selector = specificityObj[0].selector;
+      var specificity = specificityObj[0].specificity;
+      console.log(selector + ": " + specificity);
+  });
+
+
+
+});
+
+  </script>
+
+
+</head>
+<body>
+
+</body>
+</html>
