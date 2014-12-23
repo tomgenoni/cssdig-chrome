@@ -268,7 +268,7 @@ a:hover {
   min-width: 960px;
   background: #fff url(../i/icon48.png) 20px 20px no-repeat;
   background-size: 24px auto;
-  padding: 60px 0 0 20px;
+  padding: 60px 20px 20px;
 }
 
 header {
@@ -296,8 +296,20 @@ header {
   display: flex;
 }
 
+.flex-1 {
+  flex: 1;
+}
+
+.overflow-y {
+  overflow-y: scroll;
+}
+
 .align--center {
   align-items: center;
+}
+
+.flex--column {
+  flex-direction: column;
 }
 
 .anchor--right {
@@ -417,14 +429,6 @@ header:before {
 }
 
 #report-properties {
-  padding: 10px 0 20px;
-}
-
-#report-css {
-  padding: 10px 0 20px 20px;
-}
-
-#report-properties {
   width: 60%;
   border-right: 1px solid #f7f7f7;
   padding-right: 20px;
@@ -432,7 +436,7 @@ header:before {
 
 #report-css {
   flex: 1;
-  padding-right: 20px;
+  padding-left: 10px;
 }
 #report-css pre {
   font: 12px/15px 'Source';
@@ -521,6 +525,57 @@ header:before {
   max-height: 0;
 }
 
+#specificity {
+  width: 100%;
+  border-collapse: collapse;
+}
+#specificity td, #specificity th {
+  padding: 5px 0;
+  font-size: 11px;
+}
+#specificity th {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: .8;
+  padding-bottom: 10px;
+}
+#specificity tr {
+  border-bottom: 1px solid #eee;
+}
+#specificity tr th:last-child,
+#specificity tr td:last-child {
+  text-align: right;
+}
+#specificity .selector {
+  font-family: 'Source';
+  font-size: 12px;
+}
+#specificity span {
+  background: #aaa;
+  border-radius: 2px;
+  color: #fff;
+  display: inline-block;
+  margin-left: 2px;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+  font-weight: 700;
+}
+#specificity tr span:nth-child(1) {
+  display: none;
+}
+#specificity tr span:nth-child(2) {
+  background: #d33682;
+}
+#specificity tr span:nth-child(3) {
+  background: #268bd2;
+}
+#specificity tr span:nth-child(4) {
+  background: #2aa198;
+}
+
 #stats {
   border-bottom: 1px solid #f7f7f7;
   padding: 20px;
@@ -538,15 +593,9 @@ header:before {
   font-size: 11px;
 }
 
-.tabs .tab-content {
-  flex-direction: column;
-}
 .tabs .tabs-nav {
   border-bottom: 2px solid #eee;
-  margin-bottom: 10px;
-  position: relative;
-  margin-right: 20px;
-  left: 0;
+  margin-bottom: 15px;
   display: flex;
 }
 .tabs .tabs-nav li {
@@ -560,9 +609,6 @@ header:before {
   padding: 5px 10px 10px;
   color: #999;
   -webkit-transition: all 0.2s ease-in-out;
-}
-.tabs .tabs-nav li:hover {
-  box-shadow: 0 2px 0 #aaa;
 }
 .tabs .tabs-nav li:hover a {
   color: #666;

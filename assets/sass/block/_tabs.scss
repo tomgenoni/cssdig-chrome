@@ -1,15 +1,8 @@
 .tabs {
 
-  .tab-content {
-    flex-direction: column;
-  }
-
   .tabs-nav {
     border-bottom: 2px solid #eee;
-    margin-bottom: 10px;
-    position: relative;
-    margin-right: 20px;
-    left: 0;
+    margin-bottom: 15px;
     display: flex;
 
     li {
@@ -26,8 +19,6 @@
       }
 
       &:hover {
-        box-shadow: 0 2px 0 #aaa;
-
         a {
           color: #666;
         }
