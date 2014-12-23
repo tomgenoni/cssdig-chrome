@@ -5,9 +5,9 @@ function buildSpecificity(css) {
   var re_parens = /\(['|"].*?['|"]\)/gi;
   css = css.replace(re_parens, "");
 
-  var selectorsArr = CSSOM.parse(css);
+  var selectorObj = CSSOM.parse(css);
 
-  $.each( selectorsArr.cssRules, function(i,v) {
+  $.each( selectorObj.cssRules, function(i,v) {
 
     if ( v.constructor.name == "CSSStyleRule" ) {
       var selectorText = $(this)[0].selectorText;
@@ -60,5 +60,11 @@ function buildSpecificity(css) {
       }
     }
   });
+
+  // Get number of selectors
+  var selectorLength = $('#dig-iframe').contents().find("#specificity-table tbody tr").length;
+  $('#dig-iframe').contents().find("#selector-length").text(": "+ selectorLength);
+
+
 
 }

@@ -597,7 +597,7 @@ header:before {
   width: 1%;
   white-space: nowrap;
 }
-#specificity-table span {
+#specificity-table .specificity span {
   background: #aaa;
   border-radius: 2px;
   color: #fff;
@@ -608,16 +608,16 @@ header:before {
   text-align: center;
   margin-left: 3px;
 }
-#specificity-table tr span:nth-child(1) {
+#specificity-table .specificity span:nth-child(1) {
   display: none;
 }
-#specificity-table tr span:nth-child(2) {
+#specificity-table .specificity span:nth-child(2) {
   background: #d33682;
 }
-#specificity-table tr span:nth-child(3) {
+#specificity-table .specificity span:nth-child(3) {
   background: #238fb2;
 }
-#specificity-table tr span:nth-child(4) {
+#specificity-table .specificity span:nth-child(4) {
   background: #2aa198;
 }
 

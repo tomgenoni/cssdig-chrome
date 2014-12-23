@@ -233,6 +233,11 @@ function parseCSS(css) {
     // Insert line length.
     $('#dig-iframe').contents().find("#line-length").text(": " + lines.length + " lines");
 
+    // Calculate number of properties.
+    var propertyLength = $('#dig-iframe').contents().find(".content .entry").length;
+    $('#dig-iframe').contents().find("#property-length").text(": "+ propertyLength);
+
+
     // Bind the highlighting and controls.
     bindControls();
 

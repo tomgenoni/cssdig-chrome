@@ -2611,6 +2611,11 @@ function parseCSS(css) {
     // Insert line length.
     $('#dig-iframe').contents().find("#line-length").text(": " + lines.length + " lines");
 
+    // Calculate number of properties.
+    var propertyLength = $('#dig-iframe').contents().find(".content .entry").length;
+    $('#dig-iframe').contents().find("#property-length").text(": "+ propertyLength);
+
+
     // Bind the highlighting and controls.
     bindControls();
 
@@ -2632,9 +2637,9 @@ function buildSpecificity(css) {
   var re_parens = /\(['|"].*?['|"]\)/gi;
   css = css.replace(re_parens, "");
 
-  var selectorsArr = CSSOM.parse(css);
+  var selectorObj = CSSOM.parse(css);
 
-  $.each( selectorsArr.cssRules, function(i,v) {
+  $.each( selectorObj.cssRules, function(i,v) {
 
     if ( v.constructor.name == "CSSStyleRule" ) {
       var selectorText = $(this)[0].selectorText;
@@ -2687,6 +2692,12 @@ function buildSpecificity(css) {
       }
     }
   });
+
+  // Get number of selectors
+  var selectorLength = $('#dig-iframe').contents().find("#specificity-table tbody tr").length;
+  $('#dig-iframe').contents().find("#selector-length").text(": "+ selectorLength);
+
+
 
 }
 
