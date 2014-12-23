@@ -154,6 +154,7 @@
 
     td {
         background: #f9f9f9;
+        line-height: 15px;
     }
 
     tr:hover td {
@@ -179,7 +180,7 @@
         font-size: 12px;
         padding-left: 5px;
         border-radius: 2px 0 0 2px;
-        overflow-wrap: break-word;
+        word-break: break-word;
     }
 
     .specificity {

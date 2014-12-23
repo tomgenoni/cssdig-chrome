@@ -566,6 +566,7 @@ header:before {
 }
 #specificity-table td {
   background: #f9f9f9;
+  line-height: 15px;
 }
 #specificity-table tr:hover td {
   background: #e6e6eb;
@@ -586,7 +587,7 @@ header:before {
   font-size: 12px;
   padding-left: 5px;
   border-radius: 2px 0 0 2px;
-  overflow-wrap: break-word;
+  word-break: break-word;
 }
 #specificity-table .specificity {
   font-size: 12px;
