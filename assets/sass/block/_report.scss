@@ -111,6 +111,32 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 10px;
+    margin-top: -10px; // Compensate for border-spacing.
+
+    .header {
+        cursor: pointer;
+        white-space: nowrap;
+
+        &:after {
+            display: inline-block;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            margin-left: 4px;
+            position: relative;
+            top: -3px;
+        }
+    }
+
+    .headerSortUp:after {
+        border-bottom: 4px solid #333;
+    }
+
+    .headerSortDown:after {
+        border-top: 4px solid #333;
+    }
 
     td, th {
       padding: 5px 0;
@@ -148,22 +174,21 @@
       text-align: right;
     }
 
-
     .selector {
         font-family: 'Source';
         font-size: 12px;
         padding-left: 5px;
         border-radius: 2px 0 0 2px;
+        overflow-wrap: break-word;
     }
 
     .specificity {
-        font-family: 'Source';
-        font-size: 10px;
+        font-size: 12px;
         padding-right: 5px;
         border-radius: 0 0 2px 2px;
         font-weight: 700;
         width: 1%;
-
+        white-space: nowrap;
     }
 
     span {
@@ -171,10 +196,11 @@
       border-radius: 2px;
       color: #fff;
       display: inline-block;
-      width: 16px;
-      height: 16px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
       text-align: center;
-      line-height: 16px;
+      margin-left: 3px;
     }
 
     // This is for inline-styles and though it is calculated is always zero here so

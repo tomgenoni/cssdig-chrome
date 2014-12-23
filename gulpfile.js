@@ -21,9 +21,11 @@ gulp.task('scripts', function() {
     './src/js/lib/cssbeautify.js',
     './src/js/lib/specificity.js',
     './src/js/lib/cssom.js',
+    './src/js/lib/tablesorter.js',
     './src/js/lib/jquery.highlight.js',
     './src/js/local/helpers.js',
     './src/js/local/build-html.js',
+    './src/js/local/build-specificity.js',
     './src/js/local/button-control.js',
     './src/js/local/css-highlight.js',
     './src/js/local/tabs.js'
