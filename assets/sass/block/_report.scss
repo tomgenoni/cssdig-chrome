@@ -6,7 +6,7 @@
 
 #report-css {
     flex: 1;
-    padding-left: 10px;
+    padding-left: 20px;
 
     pre {
         font: 12px/15px 'Source';
@@ -107,9 +107,10 @@
     }
 }
 
-#specificity {
+#specificity-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 10px;
 
     td, th {
       padding: 5px 0;
@@ -122,10 +123,24 @@
       letter-spacing: 1px;
       opacity: .8;
       padding-bottom: 10px;
+      padding-top: 0;
+    }
+
+    td {
+        background: #f9f9f9;
+    }
+
+    tr:hover td {
+      background: #e6e6eb;
+      cursor: pointer;
     }
 
     tr {
-      border-bottom: 1px solid #eee;
+        box-shadow: inset 0 1px 0 red;
+
+        &:hover {
+            box-shadow: none;
+        }
     }
 
     tr th:last-child,
@@ -137,6 +152,18 @@
     .selector {
         font-family: 'Source';
         font-size: 12px;
+        padding-left: 5px;
+        border-radius: 2px 0 0 2px;
+    }
+
+    .specificity {
+        font-family: 'Source';
+        font-size: 10px;
+        padding-right: 5px;
+        border-radius: 0 0 2px 2px;
+        font-weight: 700;
+        width: 1%;
+
     }
 
     span {
@@ -144,12 +171,10 @@
       border-radius: 2px;
       color: #fff;
       display: inline-block;
-      margin-left: 2px;
       width: 16px;
       height: 16px;
       text-align: center;
       line-height: 16px;
-      font-weight: 700;
     }
 
     // This is for inline-styles and though it is calculated is always zero here so
@@ -163,7 +188,7 @@
     }
 
     tr span:nth-child(3) {
-      background: #268bd2;
+      background: $color-primary;
     }
 
     tr span:nth-child(4) {
