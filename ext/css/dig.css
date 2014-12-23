@@ -229,7 +229,6 @@ h3 {
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding-bottom: 15px;
   opacity: .8;
 }
 
@@ -291,6 +290,30 @@ header {
 .content {
   flex: 1;
   overflow-y: scroll;
+}
+
+.flex {
+  display: flex;
+}
+
+.align--center {
+  align-items: center;
+}
+
+.anchor--right {
+  margin-left: auto;
+}
+
+.push--left {
+  margin-left: 10px;
+}
+
+.push--right {
+  margin-right: 10px;
+}
+
+.push--bottom {
+  margin-bottom: 10px;
 }
 
 #cssdig-chrome {
@@ -393,35 +416,23 @@ header:before {
   opacity: .7;
 }
 
-#report-data .btn {
-  float: right;
-  margin-left: 10px;
-}
-#report-data h3 {
-  display: inline-block;
-}
-
 #report-properties {
   padding: 10px 0 20px;
 }
-#report-properties > div {
-  padding-right: 20px;
-}
 
 #report-css {
-  padding: 20px 0 20px 20px;
-}
-#report-css > div {
-  padding-right: 20px;
+  padding: 10px 0 20px 20px;
 }
 
 #report-properties {
   width: 60%;
   border-right: 1px solid #f7f7f7;
+  padding-right: 20px;
 }
 
 #report-css {
   flex: 1;
+  padding-right: 20px;
 }
 #report-css pre {
   font: 12px/15px 'Source';
@@ -527,6 +538,9 @@ header:before {
   font-size: 11px;
 }
 
+.tabs .tab-content {
+  flex-direction: column;
+}
 .tabs .tabs-nav {
   border-bottom: 2px solid #eee;
   margin-bottom: 10px;
@@ -544,6 +558,13 @@ header:before {
   font-weight: bold;
   font-size: 16px;
   padding: 5px 10px 10px;
+  color: #999;
+  -webkit-transition: all 0.2s ease-in-out;
+}
+.tabs .tabs-nav li:hover {
+  box-shadow: 0 2px 0 #aaa;
+}
+.tabs .tabs-nav li:hover a {
   color: #666;
 }
 .tabs .tabs-nav li.active {

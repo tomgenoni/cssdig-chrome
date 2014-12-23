@@ -1,5 +1,4 @@
 <div id="cssdig-wrap">
-
   <div id="cssdig-chrome">
 
     <div id="cssdig-form">
@@ -10,37 +9,29 @@
       <div class="close js-cancel">&#215;</div>
     </div>
 
-    <div class="tabs" id="cssdig">
-      <ul class="tabs-nav">
-        <li class="active"><a href="#tab-1">Properties</a></li>
-        <li><a href="#tab-2">Specificity</a></li>
-      </ul>
-      <div class="tab-content" id="report-data">
-
+    <div id="cssdig">
+      <div id="report-data">
         <div id="report-properties">
-          <div>
-            <button class="btn btn--small btn--disabled js-close-all">Close All</button>
-            <button class="btn btn--small js-open-all">Open All</button>
+          <div class="flex align--center push--bottom">
             <h3>Properties and Counts</h2>
-            </div>
-            <div class="content">
-              <!-- Data Dropped Here -->
-            </div>
+            <button class="btn btn--small js-open-all anchor--right push--right">Open All</button>
+            <button class="btn btn--small btn--disabled js-close-all">Close All</button>
           </div>
-          <div id="report-css">
-            <div>
-              <button class="btn btn--small btn--disabled js-css-reset">Reset</button>
-              <h3>Combined CSS<span id="line-length"></span></h2>
-              </div>
-              <div class="content">
-                <pre></pre>
-              </div>
-            </div>
-
+          <div class="content">
+            <!-- Data Dropped Here -->
           </div>
-          <div class="tab-content" style="display:none">content 2</div>
         </div>
-
-        <div class="close js-cancel">&#215;</div>
+        <div id="report-css">
+          <div class="flex align--center push--bottom">
+            <h3>Combined CSS<span id="line-length"></span></h2>
+            <button class="btn btn--small btn--disabled js-css-reset anchor--right">Reset</button>
+          </div>
+          <div class="content">
+            <pre><!-- Data Dropped Here --></pre>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="close js-cancel">&#215;</div>
+  </div>
+</div>

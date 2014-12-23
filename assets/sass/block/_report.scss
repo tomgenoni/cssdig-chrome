@@ -1,38 +1,20 @@
-#report-data {
-    .btn {
-        float: right;
-        margin-left: 10px;
-    }
-
-    h3 {
-        display: inline-block;
-    }
-}
-
 #report-properties {
     padding: 10px 0 20px;
-
-    > div {
-        padding-right: 20px;
-    }
 }
 
 #report-css {
-    padding: 20px 0 20px 20px;
-
-    > div {
-        padding-right: 20px;
-    }
+    padding: 10px 0 20px 20px;
 }
-
 
 #report-properties {
     width: 60%;
     border-right: 1px solid darken($color-background, 3%);
+    padding-right: 20px;
 }
 
 #report-css {
     flex: 1;
+    padding-right: 20px;
 
     pre {
         font: 12px/15px 'Source';

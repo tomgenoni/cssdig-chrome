@@ -1,5 +1,9 @@
 .tabs {
 
+  .tab-content {
+    flex-direction: column;
+  }
+
   .tabs-nav {
     border-bottom: 2px solid #eee;
     margin-bottom: 10px;
@@ -11,19 +15,31 @@
     li {
       border-bottom: none;
       position: relative;
-    }
-    li a {
-      display: block;
-      font-weight: bold;
-      font-size: 16px;
-      padding: 5px 10px 10px;
-      color: #666;
-    }
-    li.active {
-      box-shadow: 0 2px 0 $color-primary;
-    }
-    li.active a {
-      color: #333;
+
+      a {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 5px 10px 10px;
+        color: #999;
+        -webkit-transition: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        box-shadow: 0 2px 0 #aaa;
+
+        a {
+          color: #666;
+        }
+      }
+
+      &.active {
+        box-shadow: 0 2px 0 $color-primary;
+
+        a {
+          color: #333;
+        }
+      }
     }
   }
 }

@@ -28,3 +28,27 @@ header {
     flex: 1;
     overflow-y: scroll;
 }
+
+.flex {
+    display: flex;
+}
+
+.align--center {
+    align-items: center;
+}
+
+.anchor--right {
+    margin-left: auto;
+}
+
+.push--left {
+    margin-left: 10px;
+}
+
+.push--right {
+    margin-right: 10px;
+}
+
+.push--bottom {
+    margin-bottom: 10px;
+}
