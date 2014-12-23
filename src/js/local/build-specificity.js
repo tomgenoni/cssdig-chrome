@@ -1,7 +1,11 @@
 function buildSpecificity(css) {
 
-  var selectorsArr = CSSOM.parse(css);
   var allSelectorsArr = [];
+
+  var re_parens = /\(['|"].*?['|"]\)/gi;
+  css = css.replace(re_parens, "");
+
+  var selectorsArr = CSSOM.parse(css);
 
   $.each( selectorsArr.cssRules, function(i,v) {
 

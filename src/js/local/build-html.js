@@ -233,11 +233,15 @@ function parseCSS(css) {
     // Insert line length.
     $('#dig-iframe').contents().find("#line-length").text(": " + lines.length + " lines");
 
-    // Build specificity table.
-    buildSpecificity(final_beautified_css);
-
     // Bind the highlighting and controls.
     bindControls();
+
+    // Wait a second before building to allow animation.
+    setTimeout(function(){
+        // Build specificity table.
+        buildSpecificity(final_beautified_css);
+    }, 1000);
+
 }
 
 // Onload display the form.

@@ -12,64 +12,61 @@
   $(document).ready(function(){
 
 
-    var css = ".foo { bar:foo; } @media (max-width: 600px) { .bar { bar: foo; } } @media (max-width: 600px) { }";
+    var css = ".foo {-ms-filter: unqoute('alpha(Opacity=75)');} .bar {} .zoo {-ms-filter: unqoute('alpha(Opacity=75)');}";
+
+    var re_parens = /\('.*?'\)/gi;
+    css = css.replace(re_parens, "");
+
+    console.log(css);
+
     var selectorsArr = CSSOM.parse(css);
-    var allSelectorsArr = [];
 
     console.log(selectorsArr.cssRules);
 
-    $.each( selectorsArr.cssRules, function(i,v) {
+    // $.each( selectorsArr.cssRules, function(i,v) {
 
-      if ( v.constructor.name == "CSSStyleRule" ) {
-        var selectorText = $(this)[0].selectorText;
-      } else  if ( v.constructor.name == "CSSMediaRule" && $(this)[0].cssRules.length > 0 ) {
-        var selectorText = $(this)[0].cssRules[0].selectorText;
-      }
+    //   if ( v.constructor.name == "CSSStyleRule" ) {
+    //     var selectorText = $(this)[0].selectorText;
+    //   } else  if ( v.constructor.name == "CSSMediaRule" && $(this)[0].cssRules.length > 0 ) {
+    //     var selectorText = $(this)[0].cssRules[0].selectorText;
+    //   }
 
-      if ( selectorText != undefined ) {
-        // Create array with selectorText as it may have commas.
-        var arr = selectorText.split(',');
-        allSelectorsArr.push.apply(allSelectorsArr, arr);
-      }
-    });
+    //   if ( selectorText != undefined ) {
+    //     // Create array with selectorText as it may have commas.
+    //     var arr = selectorText.split(',');
+    //     allSelectorsArr.push.apply(allSelectorsArr, arr);
+    //   }
+    // });
 
-    // Remove extra whitespace around selector, not sure where it's coming from.
-    $.each( allSelectorsArr, function(i) {
-      allSelectorsArr[i] = allSelectorsArr[i].trim();
-    });
+    // // Remove extra whitespace around selector, not sure where it's coming from.
+    // $.each( allSelectorsArr, function(i) {
+    //   allSelectorsArr[i] = allSelectorsArr[i].trim();
+    // });
 
-    var uniqueSelectorsArr = [];
-    $.each(allSelectorsArr, function(i, el){
-        if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
-    });
+    // var uniqueSelectorsArr = [];
+    // $.each(allSelectorsArr, function(i, el){
+    //     if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
+    // });
 
-    $.each(uniqueSelectorsArr, function(i, el){
+    // $.each(uniqueSelectorsArr, function(i, el){
 
-      var specificityHTML = "";
+    //   var specificityHTML = "";
 
-      var specificityObj = SPECIFICITY.calculate(el);
-      var selector = specificityObj[0].selector;
-      var specificity = specificityObj[0].specificity;
+    //   var specificityObj = SPECIFICITY.calculate(el);
+    //   var selector = specificityObj[0].selector;
+    //   var specificity = specificityObj[0].specificity;
 
-      var arr = specificity.split(',');
+    //   var arr = specificity.split(',');
 
-      $.each(arr, function(j){
-        specificityHTML = specificityHTML + "<span>" + arr[j] + "</span>";
-      });
+    //   $.each(arr, function(j){
+    //     specificityHTML = specificityHTML + "<span>" + arr[j] + "</span>";
+    //   });
 
-      $("#foo tbody").append("<tr><td>"+selector+"</td><td>"+specificityHTML+"</td></tr>")
+    //   $("#foo tbody").append("<tr><td>"+selector+"</td><td>"+specificityHTML+"</td></tr>")
 
 
 
-    });
-        $("#foo").tablesorter({
-          sortList: [[1,1]],
-          headers: {
-            0 : {
-              sorter: false
-            }
-          }
-        });
+    // });
   });
 
   </script>
