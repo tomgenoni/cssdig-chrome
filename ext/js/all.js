@@ -2627,13 +2627,14 @@ function buildSpecificity(css) {
   var allSelectorsArr = [];
 
   $.each( selectorsArr.cssRules, function(i) {
+
     // Assume it's a not in a media block.
     var selectorText = $(this)[0].selectorText;
     // If it's a media block.
-    if ( $(this)[0].media ) {
-      var selectorText = $(this)[0].cssRules[0].selectorText;
+    if ( selectorText == undefined && $(this)[0].cssRules.length != 0 ) {
+      selectorText = $(this)[0].cssRules[0].selectorText;
     }
-    // It might be undefined if it's @font-face, e.g. Skip these.
+    // // It might be undefined if it's @font-face, e.g. Skip these.
     if ( selectorText != undefined ) {
       // Create array with selectorText as it may have commas.
       var arr = selectorText.split(',');
