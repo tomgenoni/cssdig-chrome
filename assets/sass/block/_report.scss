@@ -139,7 +139,7 @@
   }
 
   td, th {
-    padding: 5px 0;
+    padding: 4px 0;
     font-size: 11px;
   }
 
@@ -148,7 +148,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     opacity: .8;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     padding-top: 0;
   }
 
@@ -176,11 +176,12 @@
   }
 
   .selector {
-    font-family: 'Source';
     font-size: 12px;
-    padding-left: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     border-radius: 2px 0 0 2px;
     word-break: break-word;
+    font-weight: 700;
   }
 
   .specificity {
@@ -192,13 +193,9 @@
     white-space: nowrap;
 
     span {
-      background: #aaa;
-      border-radius: 2px;
-      color: #fff;
+      color: #999;
       display: inline-block;
       width: 20px;
-      height: 20px;
-      line-height: 20px;
       text-align: center;
       margin-left: 3px;
 
@@ -206,18 +203,6 @@
       // we'll just hide it.
       &:nth-child(1) {
         display: none;
-      }
-
-      &:nth-child(2) {
-        background: #d33682;
-      }
-
-      &:nth-child(3) {
-        background: $color-primary;
-      }
-
-      &:nth-child(4) {
-        background: #2aa198;
       }
     }
   }
