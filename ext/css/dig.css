@@ -229,7 +229,7 @@ h3 {
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  opacity: .8;
+  opacity: .5;
 }
 
 body {
@@ -534,6 +534,7 @@ header:before {
 #specificity-table .header {
   cursor: pointer;
   white-space: nowrap;
+  -webkit-transition: all 0.2s ease-in-out;
 }
 #specificity-table .header:after {
   display: inline-block;
@@ -545,6 +546,9 @@ header:before {
   margin-left: 4px;
   position: relative;
   top: -3px;
+}
+#specificity-table .header:hover {
+  opacity: 1;
 }
 #specificity-table .headerSortUp:after {
   border-bottom: 4px solid #333;
@@ -560,7 +564,7 @@ header:before {
   text-align: left;
   text-transform: uppercase;
   letter-spacing: 1px;
-  opacity: .8;
+  opacity: .5;
   padding-bottom: 8px;
   padding-top: 0;
 }
@@ -634,6 +638,12 @@ header:before {
 .tabs .tabs-nav li {
   border-bottom: none;
   position: relative;
+  border: 2px solid transparent;
+  border-bottom: none;
+  position: relative;
+  z-index: 1;
+  bottom: -2;
+  border-radius: 3px 3px 0 0;
 }
 .tabs .tabs-nav li a {
   display: block;
@@ -647,7 +657,8 @@ header:before {
   color: #666;
 }
 .tabs .tabs-nav li.active {
-  box-shadow: 0 2px 0 #238fb2;
+  background: #fff;
+  border-color: #eee;
 }
 .tabs .tabs-nav li.active a {
   color: #333;

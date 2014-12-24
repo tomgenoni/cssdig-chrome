@@ -116,6 +116,7 @@
   .header {
     cursor: pointer;
     white-space: nowrap;
+    -webkit-transition: all 0.2s ease-in-out;
 
     &:after {
       display: inline-block;
@@ -127,6 +128,10 @@
       margin-left: 4px;
       position: relative;
       top: -3px;
+    }
+
+    &:hover {
+      opacity: 1;
     }
   }
 
@@ -147,7 +152,7 @@
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 1px;
-    opacity: .8;
+    opacity: .5;
     padding-bottom: 8px;
     padding-top: 0;
   }

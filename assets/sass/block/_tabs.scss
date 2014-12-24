@@ -8,6 +8,12 @@
     li {
       border-bottom: none;
       position: relative;
+      border: 2px solid transparent;
+      border-bottom: none;
+      position: relative;
+      z-index: 1;
+      bottom: -2;
+      border-radius: 3px 3px 0 0;
 
       a {
         display: block;
@@ -25,7 +31,8 @@
       }
 
       &.active {
-        box-shadow: 0 2px 0 $color-primary;
+        background: #fff;
+        border-color: #eee;
 
         a {
           color: #333;
