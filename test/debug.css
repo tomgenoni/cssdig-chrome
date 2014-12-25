@@ -1,0 +1,357 @@
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-webkit-min-device-pixel-ratio:1.5),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:3/2),only screen and (-o-min-device-pixel-ratio:2/1),only screen and (min--moz-device-pixel-ratio:1.5),only screen and (min-device-pixel-ratio:1.5),only screen and (min-device-pixel-ratio:2) {
+    header nav ul#primary li a {
+        background-image: url('../images/home/navigation_retina_neueV2.png');
+    }
+
+    footer ul li#newsletter #joinus {
+        background-image: url('../images/home/subscribe_retina.png')!important;
+    }
+
+    section#features #reports {
+        background-image: url('../images/home/app_reports_retina_new.png')!important;
+    }
+
+    section#features #subscriber {
+        background-image: url('../images/home/app_subscriber_retina_new.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.will {
+        background-image: url('../images/home/friends/will_retina.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.anna {
+        background-image: url('../images/home/friends/anna_retina.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.sabrina {
+        background-image: url('../images/home/friends/sabrina_retina.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.michael {
+        background-image: url('../images/home/friends/michael_retina.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.niels {
+        background-image: url('../images/home/friends/niels_retina.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.simon {
+        background-image: url('../images/home/friends/simon_retina.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.ryan {
+        background-image: url('../images/home/friends/ryan_retina.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.teppo {
+        background-image: url('../images/home/friends/teppo_retina.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.benjamin {
+        background-image: url('../images/home/friends/benjamin_retina.png')!important;
+    }
+
+    section#loved-by #quotes blockquote.zak {
+        background-image: url('../images/home/friends/zak_retina.png')!important;
+    }
+
+    .dark ul#primary li a {
+        background-image: url('../images/global/navigation_retina.gif')!important;
+    }
+
+    .dark ul#primary.blue li.active,.dark ul#primary.tan li.active,.dark ul#primary.white li.active {
+        background-image: url('../images/global/mask_retina.gif')!important;
+    }
+
+    footer .central.marque a,footer #subForm #subscribe,footer section p a.esp,footer#slim ul li#logo a,footer ul li#logo a {
+        background-image: url('../images/global/footer_retina.png')!important;
+    }
+
+    ul#crosslinks li a {
+        background-image: url('../images/global/crosslinks_retina.gif')!important;
+    }
+
+    body.resources ul#crosslinks li a {
+        background-image: none!important;
+    }
+
+    footer section #social a.facebook {
+        background-image: url('../images/global/facebook_retina.png')!important;
+    }
+
+    footer section #social a.twitter,footer section a.followus {
+        background-image: url('../images/global/twitter_retina.png')!important;
+    }
+
+    section.signupbar {
+        background-image: url('../images/global/texture_retina.png')!important;
+        background-size: 241px 245px;
+    }
+
+    section#loved-by ul#brands li a {
+        background-image: url('../images/home/brands_retina.png?v1')!important;
+    }
+
+    #container a#logo,#container form ul li label,#container form ul li label .tick,#container form button,#container #response a#twitter,#container #response a#twitter .bird {
+        background-image: url('../gfx/sprite_retina.png')!important;
+    }
+
+    #create #tabs ul#alignment li a,#create #tabs ul#options li a {
+        background-image: url('../images/ourstory/style_options_retina.png');
+        background-size: 373px 13px;
+    }
+
+    .central.resources ul#resources a h3 {
+        background-image: url('../images/agencies/agency_res-icons-retinaV2.png');
+        background-size: 30px 720px!important;
+    }
+
+    ul#resources li a h3 {
+        background-image: url('../images/resources/resource_icons-retinaV2.png');
+        background-size: 90px 473px;
+    }
+
+    ul#willit a h3 {
+        background-image: url('../images/resources/willit_icons-retinaV2.png');
+        background-size: 60px 1019px;
+    }
+
+    ul.guides li#whyemail .book,aside nav a#book.whyemail,#nextBook a#book.whyemail,ul.guides li#planning .book,aside nav a#book.planning,#nextBook a#book.planning,ul.guides li#designing .book,.designing#book,aside nav a#book.design,#nextBook a#book.design,ul.guides li#coding .book,.coding#book,.coding.read,aside nav a#book.coding,#nextBook a#book.coding,ul.guides li#permission .book,aside nav a#book.permission,#nextBook a#book.permission,ul.guides li#mobile .book,aside nav a#book.mobile,#nextBook a#book.mobile,ul.guides li#agency .book,aside nav a#book.agency,#nextBook a#book.agency,ul.guides li#landing .book,aside nav a#book.landing,#nextBook a#book.landing,ul.guides li#reporting .book,aside nav a#book.reporting,#nextBook a#book.reporting,ul.guides li#whitelisting .book,aside nav a#book.whitelisting,#nextBook a#book.whitelisting,ul.guides li#dynamic .book,aside nav a#book.dynamic,#nextBook a#book.dynamic,ul.guides li#topemails .book,aside nav a#book.topemails,#nextBook a#book.topemails,ul.guides li#emailtrends .book,aside nav a#book.emailtrends,#nextBook a#book.emailtrends,ul.guides li#marketersGuide .book,ul.guides li#accessibility .book,aside nav a#book.accessibility,#nextBook a#book.accessibility,ul.guides li#listbuilding .book,aside nav a#book.listbuilding,#nextBook a#book.listbuilding {
+        background-size: 492px 182px;
+    }
+
+    ul.guides li#whyemail .book,aside nav a#book.whyemail,#nextBook a#book.whyemail {
+        background-image: url('../images/resources/guide_blue-retina.png');
+    }
+
+    ul.guides li#planning .book,aside nav a#book.planning,#nextBook a#book.planning {
+        background-image: url('../images/resources/guide_green-retina.png');
+    }
+
+    ul.guides li#designing .book,.designing#book,aside nav a#book.design,#nextBook a#book.design {
+        background-image: url('../images/resources/guide_yellow-retina.png');
+    }
+
+    ul.guides li#coding .book,.coding#book,.coding.read,aside nav a#book.coding,#nextBook a#book.coding {
+        background-image: url('../images/resources/guide_darkblue-retina.png');
+    }
+
+    ul.guides li#permission .book,aside nav a#book.permission,#nextBook a#book.permission {
+        background-image: url('../images/resources/guide_darkgreen-retina.png');
+    }
+
+    ul.guides li#mobile .book,aside nav a#book.mobile,#nextBook a#book.mobile {
+        background-image: url('../images/resources/guide_dark-retina.png');
+    }
+
+    ul.guides li#agency .book,aside nav a#book.agency,#nextBook a#book.agency {
+        background-image: url('../images/resources/guide_grey-retina.png');
+    }
+
+    ul.guides li#landing .book,aside nav a#book.landing,#nextBook a#book.landing {
+        background-image: url('../images/resources/guide_orange-retina.jpg');
+    }
+
+    ul.guides li#reporting .book,aside nav a#book.reporting,#nextBook a#book.reporting {
+        background-image: url('../images/resources/guide_navy-retina.jpg');
+    }
+
+    ul.guides li#whitelisting .book,aside nav a#book.whitelisting,#nextBook a#book.whitelisting {
+        background-image: url('../images/resources/guide_pale-retina.jpg');
+    }
+
+    ul.guides li#dynamic .book,aside nav a#book.dynamic,#nextBook a#book.dynamic {
+        background-image: url('../images/resources/guide_darkgrey-retina.jpg');
+    }
+
+    ul.guides li#topemails .book {
+        background-image: url('../images/resources/guide_top100-14-retina.jpg');
+    }
+
+    ul.guides li#topemails2013 .book {
+        background-image: url('../images/resources/guide_top100-retina.jpg');
+    }
+
+    ul.guides li#emailtrends .book {
+        background-image: url('../images/resources/guide_emailTrends-retinaV2.jpg');
+    }
+
+    ul.guides li#marketersGuide .book {
+        background-image: url('../images/resources/guide_marketersGuide-retina.png');
+    }
+
+    ul.guides li#accessibility .book,aside nav a#book.accessibility,#nextBook a#book.accessibility {
+        background-image: url('../images/resources/guide_accessibility-retina.png');
+    }
+
+    ul.guides li#listbuilding .book,aside nav a#book.accessibility,#nextBook a#book.listbuilding {
+        background-image: url('../images/resources/guide_emailList-retina.png');
+    }
+
+    #beautiful #gallery ol.culture li h6 {
+        background-image: url('../images/careers/perkicons-retina.png')!important;
+        background-size: 30px 325px!important;
+    }
+
+    #beautiful #gallery #slider li #quotes blockquote .quote {
+        background-image: url('../images/careers/quotes-retina.png') no-repeat left top!important;
+        background-size: 27px 19px!important;
+    }
+
+    #beautiful #gallery #slider li #quotes blockquote {
+        background-image: url('../images/careers/team-avatars-retina.png') no-repeat!important;
+        background-size: 70px 600px!important;
+    }
+
+    #growth .website-btn .eyelet {
+        background: url('../images/features/eyelet-retina.png') no-repeat;
+        background-size: 200px 200px!important;
+    }
+
+    #flexibility ol li h6 {
+        background: url('../images/features/flexibility-retina.png') no-repeat;
+        background-size: 73px 335px!important;
+    }
+
+    body.modal-open #enter-comp.modal h1 {
+        background-image: url('../images/competition/css_headline_retina.png');
+        background-size: 273px 74px;
+    }
+
+    body.modal-open #enter-comp.modal label#prettySelect {
+        background-image: url('../images/competition/css_arrow_retina.png');
+        background-size: 19px 4px;
+    }
+
+    body.modal-open #enter-comp.modal button {
+        background-image: url('../images/competition/css_button_retina.png');
+        background-size: 157px 14px;
+    }
+
+    body.modal-open #enter-comp.modal #comp-share h2,body.modal-open #enter-comp.modal #comp-share a.share {
+        background-image: url('../images/competition/css_share_retina.png');
+        background-size: 262px 50px;
+    }
+
+    #feature .content section#build ul#tools a li .inner h2 {
+        background-image: url('../images/resources/resourcesTools-retina.png');
+        background-size: 38px 782px!important;
+    }
+
+    #feature .content section#learn .icon {
+        background-image: url('../images/resources/resourcesIcons-retina.png');
+        background-size: 55px 806px!important;
+    }
+
+    #feature .content section#build ul#tools a li .docs {
+        background-image: url('../images/resources/docs-retina.png');
+        background-size: 47px 47px!important;
+    }
+
+    #features .benefits ul li {
+        background-image: url('../images/pricing/feature-icons-retina.png');
+        background-size: 44px 746px!important;
+    }
+
+    #highvolume section#contact section.power-features ul li {
+        background-image: url('../images/pricing/power-icons-retina.png');
+        background-size: 44px 400px!important;
+    }
+
+    #highvolume section#contact aside ul li.testimonial .avatar {
+        background-image: url('../images/pricing/avatar-retina.png');
+        background-size: 36px!important;
+    }
+
+    .hundred #feature .central hgroup {
+        background-image: url('../images/guides/top100/top100@2x.png');
+        background-size: 816px 292px!important;
+    }
+
+    body .central .section.content a.tweet {
+        background-image: url('../images/guides/email-trends/tweet@2x.png');
+        background-size: 14px 147px!important;
+    }
+
+    body .central .section.content .pullout.aggregate .right {
+        background: url('../images/guides/email-trends/clicksVSopens-right@2x.png') center bottom no-repeat;
+        background-size: 359px 155px!important;
+        background-size: contain!important;
+    }
+
+    body .central .section.content .pullout.aggregate .left {
+        background-image: url('../images/guides/email-trends/clicksVSopens-left@2x.png');
+        background-size: 321px 214px!important;
+    }
+
+    body .central .section#key-takeaways .signup #inner .success h2 {
+        background-image: url('../images/guides/email-trends/tick@2x.png');
+        background-size: 54px 54px!important;
+    }
+
+    section#threeblocks ul.threecolumns li.manage h4 {
+        background: url('../images/marketing/icon-manage@2x.png') top center no-repeat;
+        background-size: 86px 96px!important;
+    }
+
+    section#threeblocks ul.threecolumns li.send h4 {
+        background: url('../images/marketing/icon-send@2x.png') top center no-repeat;
+        background-size: 86px 96px!important;
+    }
+
+    section#threeblocks ul.threecolumns li.optimize h4 {
+        background: url('../images/marketing/icon-optimise@2x.png') top center no-repeat;
+        background-size: 86px 96px!important;
+    }
+
+    section#loved ul#brands li {
+        background: url('../images/marketing/brands@2x.png') top left no-repeat;
+        background-size: 164px 450px!important;
+    }
+
+    section#measuring {
+        background: url('../images/marketing/measuring@2x.png') bottom center no-repeat #f7f8f9;
+        background-size: 1206px 231px!important;
+    }
+
+    section#measuring #pin1 {
+        background: url('../images/marketing/pin1@2x.png') top left no-repeat;
+        background-size: 25px 27px!important;
+    }
+
+    section#measuring #pin2 {
+        background: url('../images/marketing/pin2@2x.png') top left no-repeat;
+        background-size: 45px 49px!important;
+    }
+
+    section#measuring #pin3 {
+        background: url('../images/marketing/pin3@2x.png') top left no-repeat;
+        background-size: 34px 37px!important;
+    }
+
+    section#measuring #pin4 {
+        background: url('../images/marketing/pin4@2x.png') top left no-repeat;
+        background-size: 58px 63px!important;
+    }
+
+    section#masthead header #navigation a#logo {
+        background: url('../images/home/navigation_retina_neueV2.png') top left no-repeat;
+        background-position: 0 -175px;
+        background-size: 699px 206px!important;
+    }
+
+    section#getfeedback .inner .centered .getfeedback {
+        background: url('../images/marketing/getfeedback@2x.png') center left no-repeat;
+        background-size: 132px 25px!important;
+    }
+
+    section#brands ul.brands a li {
+        background: url('../images/guides/top100/2014/featured-logos@2x.png') no-repeat 2px 26px #fff;
+        background-size: 940px 152px!important;
+    }
+
+    #feature hgroup h2.top2014 {
+        background: url('../images/guides/top100/2014/artwork-2014@2x.png') no-repeat center center;
+        background-size: 533px 218px!important;
+    }
+}
