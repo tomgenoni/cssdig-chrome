@@ -1,0 +1,14 @@
+function syntaxHighlight(css) {
+
+  // Capture selectors.
+  css = css.replace(/^(?!@)(.*?){/gim, "<span class='selector'>$1</span>{");
+
+  // Capture declarations.
+  css = css.replace(/(.*?:.*?;$)/gim, "<span class='declaration'>$1</span>")
+
+  // Capture open/close brackets.
+  css = css.replace(/({)/gim, "<span class='bracket-open'>$1</span>");
+  css = css.replace(/(})/gim, "<span class='bracket-closed'>$1</span>");
+
+  return css;
+}

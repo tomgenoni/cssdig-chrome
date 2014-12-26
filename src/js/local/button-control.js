@@ -2,6 +2,16 @@
 
 var dig_iframe = $('#dig-iframe').contents();
 
+// Build specificity table when user clicks on it.
+dig_iframe.find('#cssdig').on('click', '#tab-selectors', function() {
+    // Only render once.
+    if ( $(this).hasClass("not-shown")) {
+        $(this).removeClass("not-shown");
+        buildSpecificity();
+    }
+});
+
+// Start the dig with the selected items.
 dig_iframe.find('#cssdig-form').on('click', '.js-dig', function() {
     var cssSelected = [];
 
@@ -23,7 +33,7 @@ dig_iframe.find('#cssdig-form').on('click', '.js-dig', function() {
     concatenateCSS(cssSelected)
 });
 
-
+// Open property when user clicks on it.
 dig_iframe.find('#report-properties').on('click', '.property', function() {
     var target = $(this).next(".property-list");
 

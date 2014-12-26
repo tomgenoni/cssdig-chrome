@@ -1,37 +1,22 @@
-function buildSpecificity(css) {
+function buildSpecificity() {
 
   var allSelectorsArr = [];
 
-  var re_parens = /\(['|"].*?['|"]\)/gi;
-  css = css.replace(re_parens, "");
+  var css = $('#dig-iframe').contents().find("#report-css pre .selector")
 
-  var selectorObj = CSSOM.parse(css);
-
-  $.each( selectorObj.cssRules, function(i,v) {
-
-    if ( v.constructor.name == "CSSStyleRule" ) {
-      var selectorText = $(this)[0].selectorText;
-    } else  if ( v.constructor.name == "CSSMediaRule" && $(this)[0].cssRules.length > 0 ) {
-      var selectorText = $(this)[0].cssRules[0].selectorText;
-    }
-
-    if ( selectorText != undefined ) {
-      // Create array with selectorText as it may have commas.
-      var arr = selectorText.split(',');
-      allSelectorsArr.push.apply(allSelectorsArr, arr);
-    }
-  });
-
-  // Remove extra whitespace around selector, not sure where it's coming from.
-  $.each( allSelectorsArr, function(i) {
-    allSelectorsArr[i] = allSelectorsArr[i].trim();
-  });
+  $.each(css,function(){
+    var selectorText = $(this).text();
+    var arr = selectorText.split(',');
+    allSelectorsArr.push.apply(allSelectorsArr, arr);
+  })
 
   var uniqueSelectorsArr = [];
 
   $.each(allSelectorsArr, function(i, el){
     if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
   });
+
+  var tbodyContainer = $('<tbody/>');
 
   $.each(uniqueSelectorsArr, function(i, el){
 
@@ -47,24 +32,24 @@ function buildSpecificity(css) {
       specificityHTML = specificityHTML + "<span>" + arr[j] + "</span>";
     });
 
-    $('#dig-iframe').contents().find("#specificity-table tbody")
-      .append("<tr><td class='selector'>"+selector+"</td><td class='specificity'>"+specificityHTML+"</td></tr>")
-
+    // TODO: Build HTML first, then dump into Dom.
+    tbodyContainer.append("<tr><td class='selector'>"+selector+"</td><td class='specificity'>"+specificityHTML+"</td></tr>")
   });
 
-  $('#dig-iframe').contents().find("#specificity-table").tablesorter({
-    sortList: [[1,1]],
-    headers: {
-      0 : {
-        sorter: false
-      }
-    }
-  });
+  setTimeout(function(){
+      $('#dig-iframe').contents().find("#specificity-table").append(tbodyContainer);
 
-  // Get number of selectors
-  var selectorLength = $('#dig-iframe').contents().find("#specificity-table tbody tr").length;
-  $('#dig-iframe').contents().find("#selector-length").text(": "+ selectorLength);
+      $('#dig-iframe').contents().find("#specificity-table").tablesorter({
+        sortList: [[1,1]],
+        headers: {
+          0 : {
+            sorter: false
+          }
+        }
+      });
 
-
-
+      // // Get number of selectors
+      var selectorLength = $('#dig-iframe').contents().find("#specificity-table tbody tr").length;
+      $('#dig-iframe').contents().find("#selector-length").text(": "+ selectorLength);
+  }, 300);
 }

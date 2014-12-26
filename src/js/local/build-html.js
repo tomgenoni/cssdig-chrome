@@ -228,7 +228,11 @@ function parseCSS(css) {
     buildHTML(property_array, declaration_array);
 
     // Dump the final beautifed css.
-    $('#dig-iframe').contents().find("#report-css pre").append(final_beautified_css);
+    var syntax_highlighted_css = syntaxHighlight(final_beautified_css);
+
+    setTimeout(function(){
+        $('#dig-iframe').contents().find("#report-css pre").append(syntax_highlighted_css);
+    }, 500);
 
     // Insert line length.
     $('#dig-iframe').contents().find("#line-length").text(": " + lines.length + " lines");
@@ -237,15 +241,8 @@ function parseCSS(css) {
     var propertyLength = $('#dig-iframe').contents().find(".content .entry").length;
     $('#dig-iframe').contents().find("#property-length").text(": "+ propertyLength);
 
-
     // Bind the highlighting and controls.
     bindControls();
-
-    // Wait a second before building to allow animation.
-    setTimeout(function(){
-        // Build specificity table.
-        buildSpecificity(final_beautified_css);
-    }, 500);
 
 }
 
