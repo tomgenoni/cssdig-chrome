@@ -1112,7 +1112,7 @@ dig_iframe.find('#cssdig-form').on('click', '.js-dig', function() {
     dig_iframe.find('html').addClass("dig-report-active");
 
     // Resize Window
-    dig_iframe.find('#cssdig-chrome').css({ width: "98%", height: "98%"});
+    dig_iframe.find('#cssdig-chrome').css({ width: "100%", height: "100%"});
 
     setTimeout(function() {
         dig_iframe.find('#cssdig').css("display","flex");

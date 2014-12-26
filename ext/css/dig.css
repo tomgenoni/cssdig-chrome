@@ -353,6 +353,7 @@ header {
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 15px;
 }
 
 #cssdig-form {
