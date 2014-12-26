@@ -510,16 +510,16 @@ header:before {
 #report-css pre {
   font: 12px/15px 'Source';
   color: #333;
+  white-space: normal;
 }
 #report-css .ruleset {
   display: block;
   margin-bottom: 10px;
+  white-space: pre;
 }
 #report-css .highlight {
   color: #238fb2;
-  padding: 0 4px 0 0;
   display: inline-block;
-  border-radius: 2px;
 }
 
 .entry {
@@ -577,11 +577,9 @@ header:before {
   background: #e6e6eb;
   cursor: pointer;
 }
-#specificity-table tr {
-  box-shadow: inset 0 1px 0 red;
-}
-#specificity-table tr:hover {
-  box-shadow: none;
+#specificity-table tr.active td, #specificity-table tr.active .specifity span {
+  background: #238fb2;
+  color: #fff !important;
 }
 #specificity-table tr th:last-child,
 #specificity-table tr td:last-child {
@@ -599,13 +597,13 @@ header:before {
 #specificity-table .specificity {
   font-size: 12px;
   padding-right: 5px;
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 2px 2px 0;
   font-weight: 700;
   width: 1%;
   white-space: nowrap;
+  color: #999;
 }
 #specificity-table .specificity span {
-  color: #999;
   display: inline-block;
   width: 20px;
   text-align: center;

@@ -777,6 +777,9 @@ function syntaxHighlight(css) {
   css = css.replace(/({)/gim, "<span class='bracket-open'>$1</span>");
   css = css.replace(/(})/gim, "<span class='bracket-closed'>$1</span>");
 
+  // Wrap rulesets.
+  css = css.replace(/(<span class='selector'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
+
   return css;
 }
 // Builds the different HTML parts as needed.
@@ -1178,46 +1181,64 @@ dig_iframe.find('#cssdig-chrome').on('click', '.js-cancel', function() {
 
 function bindControls() {
 
-    // var dig_iframe = $('#dig-iframe').contents();
+  var dig_iframe = $('#dig-iframe').contents();
 
-    // // Click into report data to reveal locations in Combined CSS.
-    // dig_iframe.find('#report-properties').on('click', '.property-list li', function() {
-    //     if ( $(this).hasClass("active") ) {
-    //         dig_iframe.find("#report-css pre").unhighlight();
-    //         $(this).removeClass("active");
-    //         dig_iframe.find(".ruleset").show();
-    //     } else {
-    //         dig_iframe.find('.property-list li').removeClass("active");
-    //         $(this).addClass("active");
-    //         var target = $(this).find(".property-list__item").eq(0).text();
-    //         dig_iframe.find("#report-css pre").unhighlight();
-    //         dig_iframe.find("#report-css pre").highlight(" " + target, { caseSensitive: true });
-    //         dig_iframe.find(".ruleset").hide();
+  // Click into report data to reveal locations in Combined CSS.
+  dig_iframe.find('#report-properties').on('click', '.property-list li', function() {
 
-    //         setTimeout(function(){
-    //             dig_iframe.find(".highlight").each(function(){
-    //                 $(this).closest(".ruleset").show();
-    //             })
-    //         },1)
-    //     }
+    var property = $(this).find(".property-list__item").text();
+    dig_iframe.find("#report-css pre").highlight(property, { caseSensitive: true });
 
-    //     if ( dig_iframe.find(".property-list li.active").length > 0 ) {
-    //         dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
-    //     }
 
-    //     return false;
-    // });
+      // if ( dig_iframe.find(".property-list li.active").length > 0 ) {
+      //     dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
+      // }
 
-    // // Wraps each rule in a space so it can be hidden/shown during highlights.
-    // var css_pure = dig_iframe.find("#report-css pre").html();
-    // css_pure = css_pure.replace(/^}/gim, "}</span><span>")
-    // // Remove the extra opening span at the very end.
-    // css_pure = css_pure.substring(0, css_pure.length - 7);
-    // // Replace new lines and opening span with classed opening span.
-    // css_pure = css_pure.replace(/<span>\n\n/gim, "<span class='ruleset'>")
-    // // Add opening span to very first rule.
-    // css_pure = "<span class='ruleset'>" + css_pure;
-    // dig_iframe.find("#report-css pre").html(css_pure);
+
+
+      // if ( $(this).hasClass("active") ) {
+      //     dig_iframe.find("#report-css pre").unhighlight();
+      //     $(this).removeClass("active");
+      //     dig_iframe.find(".ruleset").show();
+      // } else {
+      //     dig_iframe.find('.property-list li').removeClass("active");
+      //     $(this).addClass("active");
+      //     var target = $(this).find(".property-list__item").eq(0).text();
+      //     dig_iframe.find("#report-css pre").unhighlight();
+      //     dig_iframe.find("#report-css pre").highlight(" " + target, { caseSensitive: true });
+      //     dig_iframe.find(".ruleset").hide();
+
+      //     setTimeout(function(){
+      //         dig_iframe.find(".highlight").each(function(){
+      //             $(this).closest(".ruleset").show();
+      //         })
+      //     },1)
+      // }
+
+      // if ( dig_iframe.find(".property-list li.active").length > 0 ) {
+      //     dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
+      // }
+
+      return false;
+  });
+
+  // Click into report data to reveal locations in Combined CSS.
+  dig_iframe.find('#report-data').on('click', '#specificity-table tr', function() {
+
+    $(this).addClass("active");
+
+    var property = $(this).find(".selector").text();
+    dig_iframe.find("#report-css pre").highlight(property, { caseSensitive: true });
+    dig_iframe.find(".ruleset").hide();
+
+    dig_iframe.find(".highlight").each(function(){
+      $(this).closest(".ruleset").show();
+    })
+
+
+  });
+
+
 }
 
 
