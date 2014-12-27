@@ -36,6 +36,8 @@ function bindControls() {
           $(this).hide();
         }
       });
+
+      dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
     }
   });
 
@@ -75,12 +77,15 @@ function bindControls() {
           $(this).hide();
         }
       });
+
+      dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
     }
 
   });
 
   function resetCSS() {
       dig_iframe.find(".ruleset, .at-media").show();
+      dig_iframe.find(".js-css-reset").click();
   }
 }
 

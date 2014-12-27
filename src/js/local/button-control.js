@@ -78,7 +78,7 @@ dig_iframe.find(".js-close-all").click(function(){
 
 dig_iframe.find(".js-css-reset").click(function(){
     $(this).addClass("btn--disabled");
-    dig_iframe.find(".property-list li.active").click();
+    dig_iframe.find(".property-list li.active, #specificity-table tr.active").click();
 });
 
 dig_iframe.find('#cssdig-chrome').on('click', '.js-cancel', function() {

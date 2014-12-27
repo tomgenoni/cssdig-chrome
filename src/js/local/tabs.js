@@ -3,6 +3,7 @@ $(document).ready(function(){
   dig_iframe.find('#cssdig-chrome').on('click', '.tabs > ul li a', function() {
      trigger = $(this);
      changeTab(trigger);
+     dig_iframe.find(".js-css-reset").click();
      return false;
   })
 

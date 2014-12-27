@@ -1192,7 +1192,7 @@ dig_iframe.find(".js-close-all").click(function(){
 
 dig_iframe.find(".js-css-reset").click(function(){
     $(this).addClass("btn--disabled");
-    dig_iframe.find(".property-list li.active").click();
+    dig_iframe.find(".property-list li.active, #specificity-table tr.active").click();
 });
 
 dig_iframe.find('#cssdig-chrome').on('click', '.js-cancel', function() {
@@ -1238,6 +1238,8 @@ function bindControls() {
           $(this).hide();
         }
       });
+
+      dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
     }
   });
 
@@ -1277,12 +1279,15 @@ function bindControls() {
           $(this).hide();
         }
       });
+
+      dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
     }
 
   });
 
   function resetCSS() {
       dig_iframe.find(".ruleset, .at-media").show();
+      dig_iframe.find(".js-css-reset").click();
   }
 }
 
@@ -1292,6 +1297,7 @@ $(document).ready(function(){
   dig_iframe.find('#cssdig-chrome').on('click', '.tabs > ul li a', function() {
      trigger = $(this);
      changeTab(trigger);
+     dig_iframe.find(".js-css-reset").click();
      return false;
   })
 
