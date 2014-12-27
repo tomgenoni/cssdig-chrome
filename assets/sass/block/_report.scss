@@ -93,11 +93,19 @@
     white-space: normal;
   }
 
-  .ruleset,
-  .at-rule {
+  .ruleset {
     display: block;
     margin-bottom: 10px;
     white-space: pre;
+  }
+
+  .at-rule {
+    display: block;
+    margin-bottom: 10px;
+
+    .bracket-open + .ruleset {
+      margin-top: 10px;
+    }
   }
 
   .highlight {

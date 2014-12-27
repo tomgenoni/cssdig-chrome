@@ -512,11 +512,17 @@ header:before {
   color: #333;
   white-space: normal;
 }
-#report-css .ruleset,
-#report-css .at-rule {
+#report-css .ruleset {
   display: block;
   margin-bottom: 10px;
   white-space: pre;
+}
+#report-css .at-rule {
+  display: block;
+  margin-bottom: 10px;
+}
+#report-css .at-rule .bracket-open + .ruleset {
+  margin-top: 10px;
 }
 #report-css .highlight {
   color: #238fb2;

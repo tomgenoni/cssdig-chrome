@@ -3,8 +3,13 @@ b {
 }
 
 @font-face {
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'MyWebFont';
+  src: url('webfont.eot');
+  src: url('webfont.eot?#iefix') format('embedded-opentype')
+}
+
+b {
+  font-weight: 600;
 }
 
 b {
