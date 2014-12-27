@@ -7,58 +7,73 @@ function bindControls() {
   // Click into report data to reveal locations in Combined CSS.
   dig_iframe.find('#report-properties').on('click', '.property-list li', function() {
 
-    var property = $(this).find(".property-list__item").text();
-    dig_iframe.find("#report-css pre").highlight(property, { caseSensitive: true });
+    if ( $(this).hasClass("active") ) {
 
+      $(this).removeClass("active");
+      resetCSS();
 
-      // if ( dig_iframe.find(".property-list li.active").length > 0 ) {
-      //     dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
-      // }
+    } else {
 
+      if ( dig_iframe.find(".property-list li.active").length > 0 ) {
+        dig_iframe.find(".property-list li").removeClass("active");
+        resetCSS();
+      }
 
+      $(this).addClass("active");
 
-      // if ( $(this).hasClass("active") ) {
-      //     dig_iframe.find("#report-css pre").unhighlight();
-      //     $(this).removeClass("active");
-      //     dig_iframe.find(".ruleset").show();
-      // } else {
-      //     dig_iframe.find('.property-list li').removeClass("active");
-      //     $(this).addClass("active");
-      //     var target = $(this).find(".property-list__item").eq(0).text();
-      //     dig_iframe.find("#report-css pre").unhighlight();
-      //     dig_iframe.find("#report-css pre").highlight(" " + target, { caseSensitive: true });
-      //     dig_iframe.find(".ruleset").hide();
+      var property = $(this).find(".property-list__item").text();
+      dig_iframe.find("#report-css pre").highlight(property, { caseSensitive: true });
+      dig_iframe.find(".ruleset").hide();
 
-      //     setTimeout(function(){
-      //         dig_iframe.find(".highlight").each(function(){
-      //             $(this).closest(".ruleset").show();
-      //         })
-      //     },1)
-      // }
+      dig_iframe.find(".highlight").each(function(){
+        $(this).closest(".ruleset").show();
+      });
 
-      // if ( dig_iframe.find(".property-list li.active").length > 0 ) {
-      //     dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
-      // }
-
-      return false;
+      dig_iframe.find(".at-rule").each(function(){
+        if ( $(this).find(".highlight").length == 0 ) {
+          $(this).hide();
+        }
+      });
+    }
   });
 
   // Click into report data to reveal locations in Combined CSS.
   dig_iframe.find('#report-data').on('click', '#specificity-table tr', function() {
 
-    $(this).addClass("active");
+    if ( $(this).hasClass("active") ) {
 
-    var property = $(this).find(".selector").text();
-    dig_iframe.find("#report-css pre").highlight(property, { caseSensitive: true });
-    dig_iframe.find(".ruleset").hide();
+      $(this).removeClass("active");
+      resetCSS();
 
-    dig_iframe.find(".highlight").each(function(){
-      $(this).closest(".ruleset").show();
-    })
+    } else {
 
+      if ( dig_iframe.find("#specificity-table tr.active").length > 0 ) {
+        dig_iframe.find("#specificity-table tr.active").removeClass("active");
+        resetCSS();
+      }
+
+      $(this).addClass("active");
+
+      var property = $(this).find(".selector").text();
+      dig_iframe.find("#report-css pre").highlight(property, { caseSensitive: true });
+      dig_iframe.find(".ruleset").hide();
+
+      dig_iframe.find(".highlight").each(function(){
+        $(this).closest(".ruleset").show();
+      });
+
+      dig_iframe.find(".at-rule").each(function(){
+        if ( $(this).find(".highlight").length == 0 ) {
+          $(this).hide();
+        }
+      });
+    }
 
   });
 
-
+  function resetCSS() {
+      dig_iframe.find("#report-css pre").unhighlight();
+      dig_iframe.find(".ruleset, .at-rule").show();
+  }
 }
 

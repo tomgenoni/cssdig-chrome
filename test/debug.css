@@ -1,17 +1,12 @@
-.foo {
-    height: foo;
+b {
+  font-weight: 600;
 }
 
-.zoo {
-    width: moo;
+@font-face {
+  font-weight: normal;
+  font-style: normal;
 }
 
-.foo {
-    color: red;
-}
-
-@media (max-width: 600px) {
-  .facet_sidebar {
-    display: none;
-  }
+b {
+  font-weight: 600;
 }

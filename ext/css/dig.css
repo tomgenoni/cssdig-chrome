@@ -512,7 +512,8 @@ header:before {
   color: #333;
   white-space: normal;
 }
-#report-css .ruleset {
+#report-css .ruleset,
+#report-css .at-rule {
   display: block;
   margin-bottom: 10px;
   white-space: pre;
