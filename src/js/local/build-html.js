@@ -215,14 +215,13 @@ function parseCSS(css) {
         property_array.push(prop);
     }
 
-    // We're restoring a hack, replacing temp class with real @font-face.
-    var re_restore_font_face = /.at-font-face/gi;
-    temp_beautified_css = temp_beautified_css.replace(re_restore_font_face, "@font-face");
-
     // Create final beautifed css from the temp version (that has collapsed @font-face declaration.)
     var final_beautified_css = cssbeautify(temp_beautified_css, {
         autosemicolon: true
     });
+
+    // We're restoring a hack, replacing temp class with real @font-face.
+    final_beautified_css = final_beautified_css.replace(/\.at-font-face/gim, "@font-face");
 
     // Build out the html for Properties and Counts.
     buildHTML(property_array, declaration_array);

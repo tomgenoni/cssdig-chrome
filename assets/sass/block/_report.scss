@@ -99,12 +99,16 @@
     white-space: pre;
   }
 
-  .at-rule {
+  .at-media {
     display: block;
     margin-bottom: 10px;
 
     .bracket-open + .ruleset {
       margin-top: 10px;
+    }
+
+    span:nth-last-child(2) {
+      margin-bottom: 0;
     }
   }
 

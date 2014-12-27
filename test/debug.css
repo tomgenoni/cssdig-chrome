@@ -12,6 +12,15 @@ b {
   font-weight: 600;
 }
 
+@media (max-width: 600px) {
+  .facet_sidebar {
+    display: none;
+  }
+  .sp {
+    display: none;
+  }
+}
+
 b {
   font-weight: 600;
 }

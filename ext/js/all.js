@@ -767,11 +767,15 @@ function isExternal(url) {
 
 function syntaxHighlight(css) {
 
-  // Wrap @ rules.
-  css = css.replace(/(@(.|\n)*?}\n})/gi, "<span class=\"at-rule\">$1</span>")
+  // Wrap @media rules.
+  css = css.replace(/(@media(.|\n)*?}\n})/gi, "<span class=\"at-media\">$1</span>")
 
   // Capture selectors.
   css = css.replace(/^(?!@|<)(.*?){/gim, "<span class='selector'>$1</span>{");
+
+  // Wrap other @ rules.
+  css = css.replace(/^(@font-face)(.*?){/gim, "<span class='at-font-face'>$1</span>{");
+  css = css.replace(/^(@page)(.*?){/gim, "<span class='at-page'>$1</span>{");
 
   // Capture declarations.
   css = css.replace(/(.*?:.*?;$)/gim, "<span class='declaration'>$1</span>")
@@ -782,6 +786,8 @@ function syntaxHighlight(css) {
 
   // // Wrap rulesets.
   css = css.replace(/(<span class='selector'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
+  css = css.replace(/(<span class='at-font-face'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
+  css = css.replace(/(<span class='at-page'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
 
   return css;
 }
@@ -1002,14 +1008,13 @@ function parseCSS(css) {
         property_array.push(prop);
     }
 
-    // We're restoring a hack, replacing temp class with real @font-face.
-    var re_restore_font_face = /.at-font-face/gi;
-    temp_beautified_css = temp_beautified_css.replace(re_restore_font_face, "@font-face");
-
     // Create final beautifed css from the temp version (that has collapsed @font-face declaration.)
     var final_beautified_css = cssbeautify(temp_beautified_css, {
         autosemicolon: true
     });
+
+    // We're restoring a hack, replacing temp class with real @font-face.
+    final_beautified_css = final_beautified_css.replace(/\.at-font-face/gim, "@font-face");
 
     // Build out the html for Properties and Counts.
     buildHTML(property_array, declaration_array);
@@ -1211,7 +1216,7 @@ function bindControls() {
         $(this).closest(".ruleset").show();
       });
 
-      dig_iframe.find(".at-rule").each(function(){
+      dig_iframe.find(".at-media").each(function(){
         if ( $(this).find(".highlight").length == 0 ) {
           $(this).hide();
         }
@@ -1244,7 +1249,7 @@ function bindControls() {
         $(this).closest(".ruleset").show();
       });
 
-      dig_iframe.find(".at-rule").each(function(){
+      dig_iframe.find(".at-media").each(function(){
         if ( $(this).find(".highlight").length == 0 ) {
           $(this).hide();
         }
@@ -1255,7 +1260,7 @@ function bindControls() {
 
   function resetCSS() {
       dig_iframe.find("#report-css pre").unhighlight();
-      dig_iframe.find(".ruleset, .at-rule").show();
+      dig_iframe.find(".ruleset, .at-media").show();
   }
 }
 
