@@ -24,3 +24,7 @@ b {
 b {
   font-weight: 600;
 }
+
+.boo {
+  foo:bar;
+}

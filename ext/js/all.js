@@ -771,7 +771,7 @@ function syntaxHighlight(css) {
   css = css.replace(/(@media(.|\n)*?}\n})/gi, "<span class=\"at-media\">$1</span>")
 
   // Capture selectors.
-  css = css.replace(/^(?!@|<)(.*?){/gim, "<span class='selector'>$1</span>{");
+  css = css.replace(/^(?!@|<)(.*?){/gim, "<span class='selectors'>$1</span>{");
 
   // Wrap other @ rules.
   css = css.replace(/^(@font-face)(.*?){/gim, "<span class='at-font-face'>$1</span>{");
@@ -785,7 +785,7 @@ function syntaxHighlight(css) {
   css = css.replace(/(})/gim, "<span class='bracket-closed'>$1</span>");
 
   // // Wrap rulesets.
-  css = css.replace(/(<span class='selector'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
+  css = css.replace(/(<span class='selectors'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
   css = css.replace(/(<span class='at-font-face'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
   css = css.replace(/(<span class='at-page'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
 
@@ -1242,7 +1242,7 @@ function bindControls() {
       $(this).addClass("active");
 
       var property = $(this).find(".selector").text();
-      dig_iframe.find("#report-css pre").highlight(property, { caseSensitive: true });
+      dig_iframe.find("#report-css pre .selectors").highlight(property, { caseSensitive: true });
       dig_iframe.find(".ruleset").hide();
 
       dig_iframe.find(".highlight").each(function(){
