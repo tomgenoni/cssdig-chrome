@@ -530,6 +530,9 @@ header:before {
   display: block;
   margin-bottom: 10px;
 }
+#report-css .at-media .selectors {
+  margin-left: 26px;
+}
 #report-css .at-media .bracket-open + .ruleset {
   margin-top: 10px;
 }

@@ -115,6 +115,11 @@
     display: block;
     margin-bottom: 10px;
 
+    // Adding space before selectors.
+    .selectors {
+      margin-left: 26px;
+    }
+
     .bracket-open + .ruleset {
       margin-top: 10px;
     }
