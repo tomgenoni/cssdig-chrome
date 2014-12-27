@@ -10,12 +10,14 @@ function bindControls() {
     if ( $(this).hasClass("active") ) {
 
       $(this).removeClass("active");
+      dig_iframe.find("#report-css pre").unhighlight();
       resetCSS();
 
     } else {
 
       if ( dig_iframe.find(".property-list li.active").length > 0 ) {
         dig_iframe.find(".property-list li").removeClass("active");
+        dig_iframe.find("#report-css pre").unhighlight();
         resetCSS();
       }
 
@@ -43,19 +45,25 @@ function bindControls() {
     if ( $(this).hasClass("active") ) {
 
       $(this).removeClass("active");
+      dig_iframe.find(".highlight").removeClass("highlight");
       resetCSS();
 
     } else {
 
       if ( dig_iframe.find("#specificity-table tr.active").length > 0 ) {
         dig_iframe.find("#specificity-table tr.active").removeClass("active");
+        dig_iframe.find(".highlight").removeClass("highlight");
         resetCSS();
       }
 
       $(this).addClass("active");
 
       var property = $(this).find(".selector").text();
-      dig_iframe.find("#report-css pre .selectors").highlight(property, { caseSensitive: true });
+      dig_iframe.find("#report-css pre .selector").each(function(){
+        if ( property == $(this).text() ) {
+          $(this).addClass("highlight")
+        }
+      })
       dig_iframe.find(".ruleset").hide();
 
       dig_iframe.find(".highlight").each(function(){
@@ -72,7 +80,6 @@ function bindControls() {
   });
 
   function resetCSS() {
-      dig_iframe.find("#report-css pre").unhighlight();
       dig_iframe.find(".ruleset, .at-media").show();
   }
 }

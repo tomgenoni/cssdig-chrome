@@ -517,6 +517,15 @@ header:before {
   margin-bottom: 10px;
   white-space: pre;
 }
+#report-css .selectors {
+  margin-right: 4px;
+}
+#report-css .selector {
+  margin-left: 4px;
+}
+#report-css .selector:first-child {
+  margin: 0;
+}
 #report-css .at-media {
   display: block;
   margin-bottom: 10px;

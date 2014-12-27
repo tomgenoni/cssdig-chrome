@@ -1024,6 +1024,22 @@ function parseCSS(css) {
 
     setTimeout(function(){
         $('#dig-iframe').contents().find("#report-css pre").append(syntax_highlighted_css);
+
+        // Add selector class around each selector.
+        dig_iframe.find("#report-css pre .selectors").each(function(i,v) {
+          var selectors = $(this).text();
+          var arr = selectors.split(',');
+          var html = [];
+          var comma = ",";
+          $.each(arr,function(i,j){
+            if ( i == arr.length - 1) {
+              comma = "";
+            }
+            html[html.length] = "<span class='selector'>" + j.trim() + "</span>" + comma;
+          });
+          $(this).html(html);
+        })
+
     }, 500);
 
     // Insert line length.
@@ -1043,36 +1059,19 @@ displayForm();
 
 function buildSpecificity() {
 
-  var allSelectorsArr = [];
-
   var dig_iframe = $('#dig-iframe').contents();
-
-  dig_iframe.find("#report-css pre .selectors").each(function(i,v) {
-    var selectors = $(this).text();
-    var arr = selectors.split(',');
-    var html = [];
-    var comma = ",";
-    $.each(arr,function(i,j){
-      if ( i == arr.length - 1) {
-        comma = "";
-      }
-      html[html.length] = "<span class='selector'>" + j + "</span>" + comma;
-    });
-    $(this).html(html);
-  })
-
   var allSelectorsArr = [];
   var uniqueSelectorsArr = [];
   var css = dig_iframe.find("#report-css pre .selector");
 
   $.each(css,function(){
     var selectorText = $(this).text();
-    allSelectorsArr.push(selectorText);
+    allSelectorsArr.push(selectorText.trim());
   })
 
-
+  // Dedupe selectors.
   $.each(allSelectorsArr, function(i, el){
-    if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
+      if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
   });
 
   var tbodyContainer = $('<tbody/>');
@@ -1213,12 +1212,14 @@ function bindControls() {
     if ( $(this).hasClass("active") ) {
 
       $(this).removeClass("active");
+      dig_iframe.find("#report-css pre").unhighlight();
       resetCSS();
 
     } else {
 
       if ( dig_iframe.find(".property-list li.active").length > 0 ) {
         dig_iframe.find(".property-list li").removeClass("active");
+        dig_iframe.find("#report-css pre").unhighlight();
         resetCSS();
       }
 
@@ -1246,19 +1247,25 @@ function bindControls() {
     if ( $(this).hasClass("active") ) {
 
       $(this).removeClass("active");
+      dig_iframe.find(".highlight").removeClass("highlight");
       resetCSS();
 
     } else {
 
       if ( dig_iframe.find("#specificity-table tr.active").length > 0 ) {
         dig_iframe.find("#specificity-table tr.active").removeClass("active");
+        dig_iframe.find(".highlight").removeClass("highlight");
         resetCSS();
       }
 
       $(this).addClass("active");
 
       var property = $(this).find(".selector").text();
-      dig_iframe.find("#report-css pre .selectors").highlight(property, { caseSensitive: true });
+      dig_iframe.find("#report-css pre .selector").each(function(){
+        if ( property == $(this).text() ) {
+          $(this).addClass("highlight")
+        }
+      })
       dig_iframe.find(".ruleset").hide();
 
       dig_iframe.find(".highlight").each(function(){
@@ -1275,7 +1282,6 @@ function bindControls() {
   });
 
   function resetCSS() {
-      dig_iframe.find("#report-css pre").unhighlight();
       dig_iframe.find(".ruleset, .at-media").show();
   }
 }

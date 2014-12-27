@@ -231,6 +231,22 @@ function parseCSS(css) {
 
     setTimeout(function(){
         $('#dig-iframe').contents().find("#report-css pre").append(syntax_highlighted_css);
+
+        // Add selector class around each selector.
+        dig_iframe.find("#report-css pre .selectors").each(function(i,v) {
+          var selectors = $(this).text();
+          var arr = selectors.split(',');
+          var html = [];
+          var comma = ",";
+          $.each(arr,function(i,j){
+            if ( i == arr.length - 1) {
+              comma = "";
+            }
+            html[html.length] = "<span class='selector'>" + j.trim() + "</span>" + comma;
+          });
+          $(this).html(html);
+        })
+
     }, 500);
 
     // Insert line length.

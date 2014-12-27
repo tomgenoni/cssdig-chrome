@@ -1,35 +1,18 @@
 function buildSpecificity() {
 
-  var allSelectorsArr = [];
-
   var dig_iframe = $('#dig-iframe').contents();
-
-  dig_iframe.find("#report-css pre .selectors").each(function(i,v) {
-    var selectors = $(this).text();
-    var arr = selectors.split(',');
-    var html = [];
-    var comma = ",";
-    $.each(arr,function(i,j){
-      if ( i == arr.length - 1) {
-        comma = "";
-      }
-      html[html.length] = "<span class='selector'>" + j + "</span>" + comma;
-    });
-    $(this).html(html);
-  })
-
   var allSelectorsArr = [];
   var uniqueSelectorsArr = [];
   var css = dig_iframe.find("#report-css pre .selector");
 
   $.each(css,function(){
     var selectorText = $(this).text();
-    allSelectorsArr.push(selectorText);
+    allSelectorsArr.push(selectorText.trim());
   })
 
-
+  // Dedupe selectors.
   $.each(allSelectorsArr, function(i, el){
-    if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
+      if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
   });
 
   var tbodyContainer = $('<tbody/>');

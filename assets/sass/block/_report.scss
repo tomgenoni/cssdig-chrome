@@ -99,6 +99,18 @@
     white-space: pre;
   }
 
+  .selectors {
+    margin-right: 4px;
+  }
+
+  .selector {
+    margin-left: 4px;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
   .at-media {
     display: block;
     margin-bottom: 10px;
