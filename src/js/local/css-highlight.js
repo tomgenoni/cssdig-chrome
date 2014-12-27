@@ -22,7 +22,7 @@ function bindControls() {
       $(this).addClass("active");
 
       var property = $(this).find(".property-list__item").text();
-      dig_iframe.find("#report-css pre").highlight(property, { caseSensitive: true });
+      dig_iframe.find("#report-css pre").highlight(" " + property, { caseSensitive: true });
       dig_iframe.find(".ruleset").hide();
 
       dig_iframe.find(".highlight").each(function(){
