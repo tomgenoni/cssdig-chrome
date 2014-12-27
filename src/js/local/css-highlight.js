@@ -1,3 +1,5 @@
+// Using two different methods for highlighting due to limitations of 'highlight.js'
+
 // Add controls to report data to show/hide/reveal items.
 
 function bindControls() {

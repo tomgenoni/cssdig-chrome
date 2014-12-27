@@ -4,12 +4,14 @@
 
 **Feature**
 
-- Added HTTPS support
+- Selector listing, specificity calculation, and highlighting.
 
 **Bugs**
 
-- Fixed empty `<style>` block bug
+- Better rendering of CSS code.
 
 ## v0.1
 
 - First release
+- HTTPS support
+- Fixed empty block bug
