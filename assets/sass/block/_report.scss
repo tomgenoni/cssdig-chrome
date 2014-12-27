@@ -120,8 +120,17 @@
       margin-left: 26px;
     }
 
-    .bracket-open + .ruleset {
-      margin-top: 10px;
+    span:nth-last-child(2) {
+      margin-bottom: 0;
+    }
+  }
+
+  .at-keyframes {
+    display: block;
+    margin-bottom: 10px;
+
+    .ruleset {
+      margin-left: 26px;
     }
 
     span:nth-last-child(2) {

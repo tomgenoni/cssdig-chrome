@@ -533,10 +533,17 @@ header:before {
 #report-css .at-media .selectors {
   margin-left: 26px;
 }
-#report-css .at-media .bracket-open + .ruleset {
-  margin-top: 10px;
-}
 #report-css .at-media span:nth-last-child(2) {
+  margin-bottom: 0;
+}
+#report-css .at-keyframes {
+  display: block;
+  margin-bottom: 10px;
+}
+#report-css .at-keyframes .ruleset {
+  margin-left: 26px;
+}
+#report-css .at-keyframes span:nth-last-child(2) {
   margin-bottom: 0;
 }
 #report-css .highlight {

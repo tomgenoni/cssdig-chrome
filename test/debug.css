@@ -6,10 +6,34 @@ footer {
   font-weight: 600;
 }
 
+@media (max-width: 600px) {
+  .this .that {
+    display: none;
+  }
+}
+
 footer {
   font-weight: 600;
 }
 
 h1 {
+  foo: bar;
+}
+
+@-webkit-keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+
+@keyframes mymove {
+    0% {top: 0px;}
+    100% {top: 200px;}
+}
+
+@page {
+  margin: 10px;
+}
+
+div {
   foo: bar;
 }

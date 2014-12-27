@@ -33,7 +33,7 @@ function bindControls() {
         $(this).closest(".ruleset").show();
       });
 
-      dig_iframe.find(".at-media").each(function(){
+      dig_iframe.find(".at-media, .at-keyframes").each(function(){
         if ( $(this).find(".highlight").length == 0 ) {
           $(this).hide();
         }
@@ -74,7 +74,7 @@ function bindControls() {
         $(this).closest(".ruleset").show();
       });
 
-      dig_iframe.find(".at-media").each(function(){
+      dig_iframe.find(".at-media, .at-keyframes").each(function(){
         if ( $(this).find(".highlight").length == 0 ) {
           $(this).hide();
         }
@@ -86,7 +86,7 @@ function bindControls() {
   });
 
   function resetCSS() {
-      dig_iframe.find(".ruleset, .at-media").show();
+      dig_iframe.find(".ruleset, .at-media, .at-keyframes").show();
       dig_iframe.find(".js-css-reset").click();
   }
 }

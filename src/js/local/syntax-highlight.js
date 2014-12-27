@@ -2,6 +2,8 @@ function syntaxHighlight(css) {
 
   // Wrap @media rules.
   css = css.replace(/(@media(.|\n)*?}\n})/gi, "<span class=\"at-media\">$1</span>")
+  css = css.replace(/(@keyframes(.|\n)*?}\n})/gi, "<span class=\"at-keyframes\">$1</span>")
+  css = css.replace(/(@-(.|\n)*?}\n})/gi, "<span class=\"at-keyframes\">$1</span>")
 
   // Capture selectors.
   css = css.replace(/^(?!@|<)(.*?){/gim, "<span class='selectors'>$1</span>{");

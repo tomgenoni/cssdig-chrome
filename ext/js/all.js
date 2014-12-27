@@ -769,6 +769,8 @@ function syntaxHighlight(css) {
 
   // Wrap @media rules.
   css = css.replace(/(@media(.|\n)*?}\n})/gi, "<span class=\"at-media\">$1</span>")
+  css = css.replace(/(@keyframes(.|\n)*?}\n})/gi, "<span class=\"at-keyframes\">$1</span>")
+  css = css.replace(/(@-(.|\n)*?}\n})/gi, "<span class=\"at-keyframes\">$1</span>")
 
   // Capture selectors.
   css = css.replace(/^(?!@|<)(.*?){/gim, "<span class='selectors'>$1</span>{");
@@ -1200,6 +1202,8 @@ dig_iframe.find('#cssdig-chrome').on('click', '.js-cancel', function() {
     $("#dig-blanket").remove();
 });
 
+// Using two different methods for highlighting due to limitations of 'highlight.js'
+
 // Add controls to report data to show/hide/reveal items.
 
 function bindControls() {
@@ -1233,7 +1237,7 @@ function bindControls() {
         $(this).closest(".ruleset").show();
       });
 
-      dig_iframe.find(".at-media").each(function(){
+      dig_iframe.find(".at-media, .at-keyframes").each(function(){
         if ( $(this).find(".highlight").length == 0 ) {
           $(this).hide();
         }
@@ -1274,7 +1278,7 @@ function bindControls() {
         $(this).closest(".ruleset").show();
       });
 
-      dig_iframe.find(".at-media").each(function(){
+      dig_iframe.find(".at-media, .at-keyframes").each(function(){
         if ( $(this).find(".highlight").length == 0 ) {
           $(this).hide();
         }
@@ -1286,7 +1290,7 @@ function bindControls() {
   });
 
   function resetCSS() {
-      dig_iframe.find(".ruleset, .at-media").show();
+      dig_iframe.find(".ruleset, .at-media, .at-keyframes").show();
       dig_iframe.find(".js-css-reset").click();
   }
 }
