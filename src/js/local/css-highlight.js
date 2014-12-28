@@ -30,8 +30,8 @@ function bindControls() {
       dig_iframe.find(".ruleset, .group").hide();
 
       dig_iframe.find(".highlight").each(function(){
-        $(this).closest(".group").show();
-        $(this).closest(".ruleset").show();
+        $(this).closest(".group").fadeIn("fast");
+        $(this).closest(".ruleset").fadeIn("fast");
       });
 
       dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
@@ -66,8 +66,8 @@ function bindControls() {
       dig_iframe.find(".ruleset, .group").hide();
 
       dig_iframe.find(".highlight").each(function(){
-        $(this).closest(".group").show();
-        $(this).closest(".ruleset").show();
+        $(this).closest(".group").fadeIn("fast");
+        $(this).closest(".ruleset").fadeIn("fast");
       });
 
       dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
