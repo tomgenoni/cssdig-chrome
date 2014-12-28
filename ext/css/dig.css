@@ -453,6 +453,8 @@ header:before {
 }
 #report-properties .property .property__count {
   text-align: right;
+  color: #999;
+  line-height: 16px;
 }
 #report-properties .property:hover {
   background: #e6e6eb;
@@ -512,12 +514,17 @@ header:before {
   color: #333;
   white-space: normal;
 }
+#report-css .group {
+  display: block;
+  margin-bottom: 10px;
+}
 #report-css .ruleset {
   display: block;
   margin-bottom: 10px;
   white-space: pre;
 }
-#report-css .selectors {
+#report-css .selectors,
+#report-css .at-page {
   margin-right: 4px;
 }
 #report-css .selector {
@@ -526,19 +533,11 @@ header:before {
 #report-css .selector:first-child {
   margin: 0;
 }
-#report-css .at-media {
-  display: block;
-  margin-bottom: 10px;
-}
 #report-css .at-media .selectors {
   margin-left: 26px;
 }
 #report-css .at-media span:nth-last-child(2) {
   margin-bottom: 0;
-}
-#report-css .at-keyframes {
-  display: block;
-  margin-bottom: 10px;
 }
 #report-css .at-keyframes .ruleset {
   margin-left: 26px;
@@ -625,7 +624,8 @@ header:before {
 }
 #specificity-table .specificity {
   font-size: 12px;
-  padding-right: 5px;
+  line-height: 14px;
+  padding-right: 10px;
   border-radius: 0 2px 2px 0;
   font-weight: 700;
   width: 1%;
@@ -635,8 +635,7 @@ header:before {
 #specificity-table .specificity span {
   display: inline-block;
   width: 20px;
-  text-align: center;
-  margin-left: 3px;
+  text-align: right;
 }
 #specificity-table .specificity span:nth-child(1) {
   display: none;
@@ -677,7 +676,9 @@ header:before {
 .tabs .tabs-nav li a {
   display: block;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   padding: 5px 10px 10px;
   color: #999;
   -webkit-transition: all 0.2s ease-in-out;

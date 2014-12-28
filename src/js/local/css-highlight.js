@@ -27,16 +27,11 @@ function bindControls() {
 
       var property = $(this).find(".property-list__item").text();
       dig_iframe.find("#report-css pre").highlight(" " + property, { caseSensitive: true });
-      dig_iframe.find(".ruleset").hide();
+      dig_iframe.find(".ruleset, .group").hide();
 
       dig_iframe.find(".highlight").each(function(){
+        $(this).closest(".group").show();
         $(this).closest(".ruleset").show();
-      });
-
-      dig_iframe.find(".at-media, .at-keyframes").each(function(){
-        if ( $(this).find(".highlight").length == 0 ) {
-          $(this).hide();
-        }
       });
 
       dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
@@ -68,16 +63,11 @@ function bindControls() {
           $(this).addClass("highlight")
         }
       })
-      dig_iframe.find(".ruleset").hide();
+      dig_iframe.find(".ruleset, .group").hide();
 
       dig_iframe.find(".highlight").each(function(){
+        $(this).closest(".group").show();
         $(this).closest(".ruleset").show();
-      });
-
-      dig_iframe.find(".at-media, .at-keyframes").each(function(){
-        if ( $(this).find(".highlight").length == 0 ) {
-          $(this).hide();
-        }
       });
 
       dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
@@ -86,7 +76,7 @@ function bindControls() {
   });
 
   function resetCSS() {
-      dig_iframe.find(".ruleset, .at-media, .at-keyframes").show();
+      dig_iframe.find(".ruleset, .group").show();
       dig_iframe.find(".js-css-reset").click();
   }
 }

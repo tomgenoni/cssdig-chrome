@@ -767,10 +767,12 @@ function isExternal(url) {
 
 function syntaxHighlight(css) {
 
-  // Wrap @media rules.
-  css = css.replace(/(@media(.|\n)*?}\n})/gi, "<span class=\"at-media\">$1</span>")
-  css = css.replace(/(@keyframes(.|\n)*?}\n})/gi, "<span class=\"at-keyframes\">$1</span>")
-  css = css.replace(/(@-(.|\n)*?}\n})/gi, "<span class=\"at-keyframes\">$1</span>")
+  // Wrap @ rules.
+  css = css.replace(/(@media(.|\n)*?}\n})/gi, "<span class='group at-media'>$1</span>")
+  css = css.replace(/(@keyframes(.|\n)*?}\n})/gi, "<span class='group at-keyframes'>$1</span>")
+  css = css.replace(/(@-(.|\n)*?}\n})/gi, "<span class='group at-keyframes'>$1</span>")
+  css = css.replace(/(@charset.*?;$)/gim, "<span class='group at-charset'>$1</span>")
+
 
   // Capture selectors.
   css = css.replace(/^(?!@|<)(.*?){/gim, "<span class='selectors'>$1</span>{");
@@ -787,9 +789,9 @@ function syntaxHighlight(css) {
   css = css.replace(/(})/gim, "<span class='bracket-closed'>$1</span>");
 
   // // Wrap rulesets.
-  css = css.replace(/(<span class='selectors'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
-  css = css.replace(/(<span class='at-font-face'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
-  css = css.replace(/(<span class='at-page'>(.|\n)*?}<\/span>)/gi, "<span class=\'ruleset\'>$1</span>")
+  css = css.replace(/(<span class='selectors'>(.|\n)*?}<\/span>)/gi, "<span class='ruleset'>$1</span>")
+  css = css.replace(/(<span class='at-font-face'>(.|\n)*?}<\/span>)/gi, "<span class='ruleset'>$1</span>")
+  css = css.replace(/(<span class='at-page'>(.|\n)*?}<\/span>)/gi, "<span class='ruleset'>$1</span>")
 
   return css;
 }
@@ -1231,16 +1233,11 @@ function bindControls() {
 
       var property = $(this).find(".property-list__item").text();
       dig_iframe.find("#report-css pre").highlight(" " + property, { caseSensitive: true });
-      dig_iframe.find(".ruleset").hide();
+      dig_iframe.find(".ruleset, .group").hide();
 
       dig_iframe.find(".highlight").each(function(){
+        $(this).closest(".group").show();
         $(this).closest(".ruleset").show();
-      });
-
-      dig_iframe.find(".at-media, .at-keyframes").each(function(){
-        if ( $(this).find(".highlight").length == 0 ) {
-          $(this).hide();
-        }
       });
 
       dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
@@ -1272,16 +1269,11 @@ function bindControls() {
           $(this).addClass("highlight")
         }
       })
-      dig_iframe.find(".ruleset").hide();
+      dig_iframe.find(".ruleset, .group").hide();
 
       dig_iframe.find(".highlight").each(function(){
+        $(this).closest(".group").show();
         $(this).closest(".ruleset").show();
-      });
-
-      dig_iframe.find(".at-media, .at-keyframes").each(function(){
-        if ( $(this).find(".highlight").length == 0 ) {
-          $(this).hide();
-        }
       });
 
       dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
@@ -1290,7 +1282,7 @@ function bindControls() {
   });
 
   function resetCSS() {
-      dig_iframe.find(".ruleset, .at-media, .at-keyframes").show();
+      dig_iframe.find(".ruleset, .group").show();
       dig_iframe.find(".js-css-reset").click();
   }
 }

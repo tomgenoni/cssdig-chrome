@@ -22,6 +22,8 @@
     }
     .property__count {
       text-align: right;
+      color: #999;
+      line-height: 16px;
     }
 
     &:hover {
@@ -93,13 +95,19 @@
     white-space: normal;
   }
 
+  .group {
+    display: block;
+    margin-bottom: 10px;
+  }
+
   .ruleset {
     display: block;
     margin-bottom: 10px;
     white-space: pre;
   }
 
-  .selectors {
+  .selectors,
+  .at-page {
     margin-right: 4px;
   }
 
@@ -112,8 +120,6 @@
   }
 
   .at-media {
-    display: block;
-    margin-bottom: 10px;
 
     // Adding space before selectors.
     .selectors {
@@ -126,8 +132,6 @@
   }
 
   .at-keyframes {
-    display: block;
-    margin-bottom: 10px;
 
     .ruleset {
       margin-left: 26px;
@@ -235,7 +239,8 @@
 
   .specificity {
     font-size: 12px;
-    padding-right: 5px;
+    line-height: 14px;
+    padding-right: 10px;
     border-radius: 0 2px 2px 0;
     font-weight: 700;
     width: 1%;
@@ -245,8 +250,7 @@
     span {
       display: inline-block;
       width: 20px;
-      text-align: center;
-      margin-left: 3px;
+      text-align: right;
 
       // This is for inline-styles and though it is calculated is always zero here so
       // we'll just hide it.
