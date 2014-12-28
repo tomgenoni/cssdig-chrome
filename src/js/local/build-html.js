@@ -77,16 +77,17 @@ function displayForm() {
     var inputID = 0;
 
     $.each(form_data_arr, function(key, value){
+
+        var label_title = "";
+
         if ( value == "error") {
             var fail_li = "<li>" + truncateMiddle(key,60) + "</li>";
             dig_iframe.find("#cssdig-form .fail").append(fail_li);
         } else {
-            if (key.startsWith("style")) {
-                var success_li = "<li><input id='"+inputID+"' type='checkbox' value='"+ encodeURI(key) +"' checked/><label for='"+inputID+"'>" + truncateMiddle(key,60)  + "</label></li>";
-            } else {
-                var success_li = "<li><input id='"+inputID+"' type='checkbox' value='"+ encodeURI(key) +"' checked/><label for='"+inputID+"' title='"+encodeURI(key)+"'>" + truncateMiddle(key,60)  + "</label></li>";
-
+            if (!(key.startsWith("style"))) {
+                var label_title = "title='"+encodeURI(key)+"'";
             }
+            var success_li = "<li><input id='"+inputID+"' type='checkbox' value='"+ encodeURI(key) +"' checked/><label for='"+inputID+"' "+label_title+">" + truncateMiddle(key,60)  + "</label></li>";
             dig_iframe.find("#cssdig-form .success").append(success_li);
         }
         inputID++
