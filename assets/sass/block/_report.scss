@@ -106,28 +106,30 @@
     white-space: pre;
   }
 
-  .selectors,
-  .at-page {
-    margin-right: 4px;
-  }
-
   .selector {
-    margin-left: 4px;
+    display: block;
 
-    &:first-child {
-      margin: 0;
+    &:after {
+      content: ",";
+    }
+
+    &:last-child {
+      display: inline-block;
+
+      &:after {
+        content: " ";
+      }
     }
   }
 
   .at-media {
 
-    // Adding space before selectors.
-    .selectors {
-      margin-left: 26px;
-    }
-
     span:nth-last-child(2) {
       margin-bottom: 0;
+    }
+
+    .selectors {
+      padding-left: 26px;
     }
   }
 
@@ -144,7 +146,6 @@
 
   .highlight {
     color: $color-primary;
-    display: inline-block;
   }
 }
 
@@ -222,6 +223,13 @@
   td {
     background: #f9f9f9;
     line-height: 15px;
+
+    &:first-child {
+      border-radius: 2px 0 0 2px;
+    }
+    &:last-child {
+      border-radius: 0 2px 2px 0;
+    }
   }
 
   tr:hover td {
@@ -245,7 +253,6 @@
 
   .selector {
     font-size: 12px;
-    border-radius: 2px 0 0 2px;
     word-break: break-word;
     font-weight: 400;
     font-family: 'Source';
@@ -255,7 +262,6 @@
   .length {
     font-size: 12px;
     line-height: 14px;
-    border-radius: 0 2px 2px 0;
     font-weight: 700;
     width: 1%;
     white-space: nowrap;

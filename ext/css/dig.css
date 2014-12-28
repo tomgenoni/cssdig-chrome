@@ -523,21 +523,23 @@ header:before {
   margin-bottom: 10px;
   white-space: pre;
 }
-#report-css .selectors,
-#report-css .at-page {
-  margin-right: 4px;
-}
 #report-css .selector {
-  margin-left: 4px;
+  display: block;
 }
-#report-css .selector:first-child {
-  margin: 0;
+#report-css .selector:after {
+  content: ",";
 }
-#report-css .at-media .selectors {
-  margin-left: 26px;
+#report-css .selector:last-child {
+  display: inline-block;
+}
+#report-css .selector:last-child:after {
+  content: " ";
 }
 #report-css .at-media span:nth-last-child(2) {
   margin-bottom: 0;
+}
+#report-css .at-media .selectors {
+  padding-left: 26px;
 }
 #report-css .at-keyframes .ruleset {
   margin-left: 26px;
@@ -547,7 +549,6 @@ header:before {
 }
 #report-css .highlight {
   color: #238fb2;
-  display: inline-block;
 }
 
 .entry {
@@ -615,6 +616,12 @@ header:before {
   background: #f9f9f9;
   line-height: 15px;
 }
+#specificity-table td:first-child {
+  border-radius: 2px 0 0 2px;
+}
+#specificity-table td:last-child {
+  border-radius: 0 2px 2px 0;
+}
 #specificity-table tr:hover td {
   background: #e6e6eb;
   cursor: pointer;
@@ -629,7 +636,6 @@ header:before {
 }
 #specificity-table .selector {
   font-size: 12px;
-  border-radius: 2px 0 0 2px;
   word-break: break-word;
   font-weight: 400;
   font-family: 'Source';
@@ -638,7 +644,6 @@ header:before {
 #specificity-table .length {
   font-size: 12px;
   line-height: 14px;
-  border-radius: 0 2px 2px 0;
   font-weight: 700;
   width: 1%;
   white-space: nowrap;

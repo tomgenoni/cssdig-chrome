@@ -239,10 +239,7 @@ function parseCSS(css) {
           var html = [];
           var comma = ",";
           $.each(arr,function(i,j){
-            if ( i == arr.length - 1) {
-              comma = "";
-            }
-            html[html.length] = "<span class='selector'>" + j.trim() + "</span>" + comma;
+            html[html.length] = "<span class='selector'>" + j.trim() + "</span>";
           });
           $(this).html(html);
         })
