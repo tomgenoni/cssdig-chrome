@@ -30,7 +30,7 @@ gulp.task('scripts', function() {
     './src/js/local/css-highlight.js',
     './src/js/local/tabs.js'
     ])
-    .pipe(concat('all.js'))
+    .pipe(concat('cssdig.js'))
     .pipe(gulp.dest('./ext/js/'))
 });
 

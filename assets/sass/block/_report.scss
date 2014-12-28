@@ -122,7 +122,8 @@
     }
   }
 
-  .at-media {
+  .at-media,
+  .at-keyframes {
 
     span:nth-last-child(2) {
       margin-bottom: 0;
@@ -130,17 +131,6 @@
 
     .selectors {
       padding-left: 26px;
-    }
-  }
-
-  .at-keyframes {
-
-    .ruleset {
-      margin-left: 26px;
-    }
-
-    span:nth-last-child(2) {
-      margin-bottom: 0;
     }
   }
 

@@ -25,13 +25,13 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["js/all.js"]
+      "js": ["js/cssdig.js"]
     }
   ],
   "web_accessible_resources": [
     "html/dig.html",
     "css/dig.css",
     "i/icon48.png",
-    "js/all.js"
+    "js/cssdig.js"
   ]
 }

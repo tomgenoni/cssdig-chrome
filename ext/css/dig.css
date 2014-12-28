@@ -535,17 +535,13 @@ header:before {
 #report-css .selector:last-child:after {
   content: " ";
 }
-#report-css .at-media span:nth-last-child(2) {
-  margin-bottom: 0;
-}
-#report-css .at-media .selectors {
-  padding-left: 26px;
-}
-#report-css .at-keyframes .ruleset {
-  margin-left: 26px;
-}
+#report-css .at-media span:nth-last-child(2),
 #report-css .at-keyframes span:nth-last-child(2) {
   margin-bottom: 0;
+}
+#report-css .at-media .selectors,
+#report-css .at-keyframes .selectors {
+  padding-left: 26px;
 }
 #report-css .highlight {
   color: #238fb2;
