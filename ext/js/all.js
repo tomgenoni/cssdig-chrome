@@ -772,6 +772,7 @@ function syntaxHighlight(css) {
   css = css.replace(/(@keyframes(.|\n)*?}\n})/gi, "<span class='group at-keyframes'>$1</span>")
   css = css.replace(/(@-(.|\n)*?}\n})/gi, "<span class='group at-keyframes'>$1</span>")
   css = css.replace(/(@charset.*?;$)/gim, "<span class='group at-charset'>$1</span>")
+  css = css.replace(/(@import.*?;$)/gim, "<span class='group at-import'>$1</span>")
 
   // Capture selectors.
   css = css.replace(/^(?!@|<)(.*?){/gim, "<span class='selectors'>$1</span>{");

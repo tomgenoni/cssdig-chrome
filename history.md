@@ -5,10 +5,11 @@
 **Feature**
 
 - Selector listing, specificity calculation, and highlighting.
+- Better rendering of CSS code.
 
 **Bugs**
 
-- Better rendering of CSS code.
+- Now hiding unmatched rulesets in @media blocks.
 
 ## v0.1
 
