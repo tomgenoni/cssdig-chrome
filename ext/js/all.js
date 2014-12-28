@@ -773,7 +773,6 @@ function syntaxHighlight(css) {
   css = css.replace(/(@-(.|\n)*?}\n})/gi, "<span class='group at-keyframes'>$1</span>")
   css = css.replace(/(@charset.*?;$)/gim, "<span class='group at-charset'>$1</span>")
 
-
   // Capture selectors.
   css = css.replace(/^(?!@|<)(.*?){/gim, "<span class='selectors'>$1</span>{");
 
@@ -1066,7 +1065,8 @@ function buildSpecificity() {
   var dig_iframe = $('#dig-iframe').contents();
   var allSelectorsArr = [];
   var uniqueSelectorsArr = [];
-  var css = dig_iframe.find("#report-css pre .selector");
+  // Only grab selectors inside regular rules and @media rules, but no others.
+  var css = dig_iframe.find("#report-css pre > .ruleset > .selectors > .selector, #report-css pre > .at-media .selector");
 
   $.each(css,function(){
     var selectorText = $(this).text();
