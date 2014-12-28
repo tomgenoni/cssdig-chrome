@@ -1082,19 +1082,16 @@ function buildSpecificity() {
   // Remove empty items in array.
   uniqueSelectorsArr = uniqueSelectorsArr.filter(Boolean)
 
-  console.log(uniqueSelectorsArr);
-
   var tbodyContainer = $('<tbody/>');
 
   $.each(uniqueSelectorsArr, function(i, el){
-
-    console.log(el);
 
     var specificityHTML = "";
 
     var specificityObj = SPECIFICITY.calculate(el);
     var selector = specificityObj[0].selector;
     var specificity = specificityObj[0].specificity;
+    var length = specificityObj[0].parts.length;
 
     var arr = specificity.split(',');
 
@@ -1103,7 +1100,7 @@ function buildSpecificity() {
     });
 
     // TODO: Build HTML first, then dump into Dom.
-    tbodyContainer.append("<tr><td class='selector'>"+selector+"</td><td class='specificity'>"+specificityHTML+"</td></tr>")
+    tbodyContainer.append("<tr><td class='selector'>"+selector+"</td><td class='specificity'>"+specificityHTML+"</td><td class='length'>"+length+"</td></tr>")
   });
 
   setTimeout(function(){

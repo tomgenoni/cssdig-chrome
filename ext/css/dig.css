@@ -226,7 +226,7 @@ input[type="submit"] {
 }
 
 h3 {
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
   opacity: .5;
@@ -568,16 +568,26 @@ header:before {
 #specificity-table .header:after {
   display: inline-block;
   content: "";
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  margin-left: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #aaa;
   position: relative;
-  top: -3px;
+  margin-left: 4px;
 }
 #specificity-table .header:hover {
   opacity: 1;
+}
+#specificity-table .headerSortUp:after,
+#specificity-table .headerSortdown:after {
+  top: -2px;
+  background: none;
+  display: inline-block;
+  content: "";
+  width: 0 !important;
+  height: 0 !important;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
 }
 #specificity-table .headerSortUp:after {
   border-bottom: 4px solid #333;
@@ -586,8 +596,9 @@ header:before {
   border-top: 4px solid #333;
 }
 #specificity-table td, #specificity-table th {
-  padding: 4px 0;
-  font-size: 11px;
+  padding: 4px 10px;
+  font-size: 10px;
+  text-align: right;
 }
 #specificity-table th {
   text-align: left;
@@ -596,6 +607,9 @@ header:before {
   opacity: .5;
   padding-bottom: 8px;
   padding-top: 0;
+}
+#specificity-table th:first-child {
+  padding-left: 0;
 }
 #specificity-table td {
   background: #f9f9f9;
@@ -609,35 +623,35 @@ header:before {
   background: #238fb2;
   color: #fff !important;
 }
-#specificity-table tr th:last-child,
-#specificity-table tr td:last-child {
-  text-align: right;
+#specificity-table tr th:first-child,
+#specificity-table tr td:first-child {
+  text-align: left;
 }
 #specificity-table .selector {
   font-size: 12px;
-  padding-left: 10px;
-  padding-right: 10px;
   border-radius: 2px 0 0 2px;
   word-break: break-word;
   font-weight: 400;
   font-family: 'Source';
 }
-#specificity-table .specificity {
+#specificity-table .specificity,
+#specificity-table .length {
   font-size: 12px;
   line-height: 14px;
-  padding-right: 10px;
   border-radius: 0 2px 2px 0;
   font-weight: 700;
   width: 1%;
   white-space: nowrap;
   color: #999;
 }
-#specificity-table .specificity span {
+#specificity-table .specificity span,
+#specificity-table .length span {
   display: inline-block;
   width: 20px;
   text-align: right;
 }
-#specificity-table .specificity span:nth-child(1) {
+#specificity-table .specificity span:nth-child(1),
+#specificity-table .length span:nth-child(1) {
   display: none;
 }
 
