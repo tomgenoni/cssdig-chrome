@@ -1079,9 +1079,16 @@ function buildSpecificity() {
       if($.inArray(el, uniqueSelectorsArr) === -1) uniqueSelectorsArr.push(el);
   });
 
+  // Remove empty items in array.
+  uniqueSelectorsArr = uniqueSelectorsArr.filter(Boolean)
+
+  console.log(uniqueSelectorsArr);
+
   var tbodyContainer = $('<tbody/>');
 
   $.each(uniqueSelectorsArr, function(i, el){
+
+    console.log(el);
 
     var specificityHTML = "";
 
