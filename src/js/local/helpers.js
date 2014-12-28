@@ -29,3 +29,8 @@ function isExternal(url) {
     if (typeof match[2] === "string" && match[2].length > 0 && match[2].replace(new RegExp(":("+{"http:":80,"https:":443}[location.protocol]+")?$"), "") !== location.host) return true;
     return false;
 }
+
+// If string starts with...
+String.prototype.startsWith = function (str){
+    return this.indexOf(str) == 0;
+};

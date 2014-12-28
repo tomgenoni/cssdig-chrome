@@ -765,6 +765,11 @@ function isExternal(url) {
     return false;
 }
 
+// If string starts with...
+String.prototype.startsWith = function (str){
+    return this.indexOf(str) == 0;
+};
+
 function syntaxHighlight(css) {
 
   // Wrap @ rules.
@@ -878,7 +883,12 @@ function displayForm() {
             var fail_li = "<li>" + truncateMiddle(key,60) + "</li>";
             dig_iframe.find("#cssdig-form .fail").append(fail_li);
         } else {
-            var success_li = "<li><input id='"+inputID+"' type='checkbox' value='"+ encodeURI(key) +"' checked/><label for='"+inputID+"'>" + truncateMiddle(key,60)  + "</label></li>";
+            if (key.startsWith("style")) {
+                var success_li = "<li><input id='"+inputID+"' type='checkbox' value='"+ encodeURI(key) +"' checked/><label for='"+inputID+"'>" + truncateMiddle(key,60)  + "</label></li>";
+            } else {
+                var success_li = "<li><input id='"+inputID+"' type='checkbox' value='"+ encodeURI(key) +"' checked/><label for='"+inputID+"' title='"+encodeURI(key)+"'>" + truncateMiddle(key,60)  + "</label></li>";
+
+            }
             dig_iframe.find("#cssdig-form .success").append(success_li);
         }
         inputID++
