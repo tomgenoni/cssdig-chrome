@@ -1,6 +1,7 @@
 // Builds the different HTML parts as needed.
 
 // Gets the link/style data.
+
 function getData() {
 
     var links = [];
