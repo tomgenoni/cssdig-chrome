@@ -509,7 +509,7 @@ header:before {
   flex: 1;
   padding-left: 20px;
 }
-#css-code {
+#report-css pre {
   font: 12px/15px 'Source';
   color: #333;
   white-space: normal;
@@ -563,33 +563,26 @@ header:before {
   -webkit-transition: all 0.2s ease-in-out;
 }
 #specificity-table .header:after {
+  position: relative;
+  top: -2px;
   display: inline-block;
   content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #aaa;
-  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #999;
   margin-left: 4px;
 }
 #specificity-table .header:hover {
   opacity: 1;
 }
-#specificity-table .headerSortUp:after,
-#specificity-table .headerSortdown:after {
-  top: -2px;
-  background: none;
-  display: inline-block;
-  content: "";
-  width: 0 !important;
-  height: 0 !important;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-}
 #specificity-table .headerSortUp:after {
+  border-top: none;
   border-bottom: 4px solid #333;
 }
 #specificity-table .headerSortDown:after {
+  border-bottom: none;
   border-top: 4px solid #333;
 }
 #specificity-table td, #specificity-table th {
@@ -654,23 +647,6 @@ header:before {
 #specificity-table .specificity span:nth-child(1),
 #specificity-table .length span:nth-child(1) {
   display: none;
-}
-
-#stats {
-  border-bottom: 1px solid #f7f7f7;
-  padding: 20px;
-}
-#stats table td {
-  padding: 0 0 4px;
-  font-size: 11px;
-  color: #999;
-}
-#stats table tr td:first-child {
-  padding-right: 15px;
-  text-transform: uppercase;
-  text-align: right;
-  letter-spacing: 1px;
-  font-size: 11px;
 }
 
 .tabs .tabs-nav {
