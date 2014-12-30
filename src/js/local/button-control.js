@@ -2,6 +2,16 @@
 
 var dig_iframe = $('#dig-iframe').contents();
 
+// Build specificity table when user clicks on it.
+dig_iframe.find('#cssdig').on('click', '#tab-selectors', function() {
+    // Only render once.
+    if ( $(this).hasClass("not-shown")) {
+        $(this).removeClass("not-shown");
+        buildSpecificity();
+    }
+});
+
+// Start the dig with the selected items.
 dig_iframe.find('#cssdig-form').on('click', '.js-dig', function() {
     var cssSelected = [];
 
@@ -14,7 +24,7 @@ dig_iframe.find('#cssdig-form').on('click', '.js-dig', function() {
     dig_iframe.find('html').addClass("dig-report-active");
 
     // Resize Window
-    dig_iframe.find('#cssdig-chrome').css({ width: "98%", height: "98%"});
+    dig_iframe.find('#cssdig-chrome').css({ width: "100%", height: "100%"});
 
     setTimeout(function() {
         dig_iframe.find('#cssdig').css("display","flex");
@@ -23,8 +33,8 @@ dig_iframe.find('#cssdig-form').on('click', '.js-dig', function() {
     concatenateCSS(cssSelected)
 });
 
-
-dig_iframe.find('#report-properties').on('click', '.property', function() {
+// Open property when user clicks on it.
+dig_iframe.find('#report-tabs').on('click', '.property', function() {
     var target = $(this).next(".property-list");
 
     if ( target.hasClass("is-hidden") ) {
@@ -67,8 +77,10 @@ dig_iframe.find(".js-close-all").click(function(){
 });
 
 dig_iframe.find(".js-css-reset").click(function(){
+    dig_iframe.find(".tab-content .active").removeClass("active");
+    dig_iframe.find("#css-code .highlight").removeClass("highlight");
+    dig_iframe.find("#css-code .ruleset, #css-code .group").show();
     $(this).addClass("btn--disabled");
-    dig_iframe.find(".property-list li.active").click();
 });
 
 dig_iframe.find('#cssdig-chrome').on('click', '.js-cancel', function() {

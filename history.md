@@ -2,14 +2,17 @@
 
 ## v0.2
 
-### Feature
+**Feature**
 
-- Added HTTPS support
+- Selector listing, specificity calculation, and highlighting.
+- Better rendering of CSS code.
 
-### Bugs
+**Bugs**
 
-- Fixed empty `<style>` block bug
+- Now hiding unmatched rulesets in @media blocks.
 
 ## v0.1
 
 - First release
+- HTTPS support
+- Fixed empty block bug

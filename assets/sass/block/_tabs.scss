@@ -1,0 +1,45 @@
+.tabs {
+
+  .tabs-nav {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 15px;
+    display: flex;
+
+    li {
+      border-bottom: none;
+      position: relative;
+      border: 2px solid transparent;
+      border-bottom: none;
+      position: relative;
+      z-index: 1;
+      bottom: -2;
+      border-radius: 3px 3px 0 0;
+
+      a {
+        display: block;
+        font-weight: bold;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 5px 10px 10px;
+        color: #999;
+        -webkit-transition: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        a {
+          color: #666;
+        }
+      }
+
+      &.active {
+        background: #fff;
+        border-color: #eee;
+
+        a {
+          color: #333;
+        }
+      }
+    }
+  }
+}

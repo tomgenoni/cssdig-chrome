@@ -1,41 +1,60 @@
 <div id="cssdig-wrap">
+  <div id="cssdig-chrome">
 
-    <div id="cssdig-chrome">
-
-        <div id="cssdig-form">
-            <ul class="success" style="display:none"></ul>
-            <ul class="fail" style="display:none"></ul>
-            <div id="empty-message" style="display:none">Sorry, but I couldn't find any Diggable CSS on this page.</div>
-            <button class="btn btn--large btn--accent btn--full js-dig">Start Digging</button>
-            <div class="close js-cancel">&#215;</div>
-        </div>
-
-        <div id="cssdig">
-            <div id="report-data">
-                <div id="report-properties">
-                    <div>
-                        <button class="btn btn--small btn--disabled js-close-all">Close All</button>
-                        <button class="btn btn--small js-open-all">Open All</button>
-                        <h3>Properties and Counts</h2>
-                    </div>
-                    <div class="content">
-                    <!-- Data Dropped Here -->
-                    </div>
-                </div>
-                <div id="report-css">
-                    <div>
-                        <button class="btn btn--small btn--disabled js-css-reset">Reset</button>
-                        <h3>Combined CSS<span id="line-length"></span></h2>
-                    </div>
-                   <div class="content">
-                        <pre></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="close js-cancel">&#215;</div>
+    <div id="cssdig-form">
+      <ul class="success" style="display:none"></ul>
+      <ul class="fail" style="display:none"></ul>
+      <div id="empty-message" style="display:none">Sorry, but I couldn't find any Diggable CSS on this page.</div>
+      <button class="btn btn--large btn--accent btn--full js-dig">Start Digging</button>
+      <div class="close js-cancel">&#215;</div>
     </div>
 
+    <div id="cssdig">
+      <div id="report-data">
 
 
+        <div class="tabs" id="report-tabs">
+          <ul class="tabs-nav">
+            <li class="active"><a href="#tab-1" id="tab-properties">Properties</a></li>
+            <li><a href="#tab-2" id="tab-selectors" class="not-shown">Selectors</a></li>
+          </ul>
+          <div class="tab-content flex flex--column flex-1">
+            <div class="flex push--bottom">
+              <h3>Properties<span id="property-length"></span></h2>
+              <button class="btn btn--small js-open-all anchor--right push--right">Open All</button>
+              <button class="btn btn--small btn--disabled js-close-all">Close All</button>
+            </div>
+            <div class="content">
+              <!-- Property Data Dropped Here -->
+            </div>
+          </div>
+          <div class="tab-content flex flex--column flex-1" style="display:none">
+            <div class="flex-1 overflow-y">
+              <table id="specificity-table">
+                <thead>
+                  <tr>
+                    <th>Selectors<span id="selector-length"></span></th>
+                    <th>Specificity</th>
+                    <th>Length</th>
+                  </tr>
+                </thead>
+                  <!-- Specificity Data Dropped Here -->
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="report-css">
+          <div class="flex push--bottom">
+            <h3>Combined CSS<span id="line-length"></span></h2>
+            <button class="btn btn--small btn--disabled js-css-reset anchor--right">Reset</button>
+          </div>
+          <div class="content">
+            <pre id="css-code"><!-- Full CSS Dropped Here --></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="close js-cancel">&#215;</div>
+  </div>
 </div>

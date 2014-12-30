@@ -1,127 +1,264 @@
-#report-data {
-    .btn {
-        float: right;
-        margin-left: 10px;
-    }
+#report-tabs {
+  width: 60%;
+  border-right: 1px solid darken($color-background, 3%);
+  padding-right: 20px;
 
-    h3 {
-        display: inline-block;
-    }
-}
-
-#report-properties,
-#report-css {
-    padding: 20px 0 20px 20px;
-
-    > div {
-        padding-right: 20px;
-    }
-}
-
-
-#report-properties {
-    width: 60%;
-    border-right: 1px solid darken($color-background, 3%);
-}
-
-#report-css {
-    flex: 1;
-
-    pre {
-        font: 12px/15px 'Source';
-        color: #333;
-    }
-
-    .ruleset {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    .highlight {
-        color: $color-primary;
-        padding: 0 4px 0 0;
-        display: inline-block;
-        border-radius: 2px;
-    }
-}
-
-.entry {
-    margin-bottom: 5px;
-}
-
-.property {
+  .property {
     font-size: 12px;
     display: flex;
     width: 100%;
     margin: 0 0 5px;
     background: #f9f9f9;
-    padding: 5px 10px;
+    padding: 3px 10px;
     border-radius: 3px;
     -webkit-transition: background 0.2s ease-in-out;
     font-weight: 700;
 
     .property__name {
-        flex: 1;
-        width: 100%;
+      flex: 1;
+      width: 100%;
+      font-weight: 400;
+      font-family: 'Source';
     }
     .property__count {
-        text-align: right;
+      text-align: right;
+      color: #999;
+      line-height: 16px;
     }
 
     &:hover {
-        background: #e6e6eb;
-        cursor: pointer;
+      background: #e6e6eb;
+      cursor: pointer;
     }
-}
+  }
 
-.property-list {
+  .property-list {
     margin: 0 5px;
     overflow: hidden;
     max-height: 5000px;
     -webkit-transition: max-height 0.4s ease-in-out;
 
     li {
-        display: flex;
-        border-radius: 2px;
-        padding: 3px 5px;
-        cursor: pointer;
-        color: #333;
-        margin-bottom: 1px;
-        -webkit-transition: background 0.2s ease-in-out;
+      display: flex;
+      border-radius: 2px;
+      padding: 3px 5px;
+      cursor: pointer;
+      color: #333;
+      margin-bottom: 1px;
+      -webkit-transition: background 0.2s ease-in-out;
 
-        &:hover {
-            background: #e6e6eb;
-        }
+      &:hover {
+        background: #e6e6eb;
+      }
 
-        &.active {
-            background: $color-primary;
-            color: #fff;
-        }
+      &.active {
+        background: $color-primary;
+        color: #fff;
+      }
     }
 
     .property-list__color {
-        width: 20px;
-        height: 12px;
-        margin-right: 10px;
-        box-shadow: 0 0 1px rgba(255,255,255,.2)
+      width: 20px;
+      height: 12px;
+      margin-right: 10px;
+      box-shadow: 0 0 1px rgba(255,255,255,.2)
     }
 
     .property-list__item {
-        flex: 1;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 10px;
-        font-family: 'Source';
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 10px;
+      font-family: 'Source';
     }
 
     .property-list__count {
-        text-align: right;
-        font-family: 'Source';
-        font-size: 10px;
+      text-align: right;
+      font-family: 'Source';
+      font-size: 10px;
     }
 
     &.is-hidden {
-        max-height: 0;
+      max-height: 0;
     }
+  }
+}
+
+#report-css {
+  flex: 1;
+  padding-left: 20px;
+
+  pre {
+    font: 12px/15px 'Source';
+    color: #333;
+    white-space: normal;
+  }
+
+  .group {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .ruleset {
+    display: block;
+    margin-bottom: 10px;
+    white-space: pre;
+  }
+
+  .selector {
+    display: block;
+
+    &:after {
+      content: ",";
+    }
+
+    &:last-child {
+      display: inline-block;
+
+      &:after {
+        content: " ";
+      }
+    }
+  }
+
+  .at-media,
+  .at-keyframes {
+
+    span:nth-last-child(2) {
+      margin-bottom: 0;
+    }
+
+    .selectors {
+      padding-left: 26px;
+    }
+  }
+
+  .highlight {
+    color: $color-primary;
+  }
+}
+
+.entry {
+  margin-bottom: 5px;
+}
+
+
+#specificity-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: -10px; // Compensate for border-spacing.
+
+  .header {
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-transition: all 0.2s ease-in-out;
+
+    &:after {
+      position: relative;
+      top: -2px;
+      display: inline-block;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid #999;
+      margin-left: 4px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .headerSortUp:after {
+    border-top: none;
+    border-bottom: 4px solid #333;
+  }
+
+  .headerSortDown:after {
+    border-bottom: none;
+      border-top: 4px solid #333;
+  }
+
+  td, th {
+    padding: 4px 10px;
+    font-size: 10px;
+    text-align: right;
+  }
+
+  th {
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: .5;
+    padding-bottom: 8px;
+    padding-top: 0;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  td {
+    background: #f9f9f9;
+    line-height: 15px;
+
+    &:first-child {
+      border-radius: 2px 0 0 2px;
+    }
+    &:last-child {
+      border-radius: 0 2px 2px 0;
+    }
+  }
+
+  tr:hover td {
+    background: #e6e6eb;
+    cursor: pointer;
+  }
+
+  tr {
+
+    &.active td,
+    &.active .specifity span {
+      background: $color-primary;
+      color: #fff !important;
+    }
+  }
+
+  tr th:first-child,
+  tr td:first-child  {
+    text-align: left;
+  }
+
+  .selector {
+    font-size: 12px;
+    word-break: break-word;
+    font-weight: 400;
+    font-family: 'Source';
+  }
+
+  .specificity,
+  .length {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+    width: 1%;
+    white-space: nowrap;
+    color: #999;
+
+    span {
+      display: inline-block;
+      width: 20px;
+      text-align: right;
+
+      // This is for inline-styles and though it is calculated is always zero here so
+      // we'll just hide it.
+      &:nth-child(1) {
+        display: none;
+      }
+    }
+  }
 }

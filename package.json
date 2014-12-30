@@ -1,0 +1,24 @@
+{
+  "name": "cssdig-chrome",
+  "version": "0.0.1",
+  "description": "Chrome extension for analyzing CSS.",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tomgenoni/cssdig-chrome"
+  },
+  "author": "Tom Genoni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomgenoni/cssdig-chrome/issues"
+  },
+  "homepage": "https://github.com/tomgenoni/cssdig-chrome",
+  "dependencies": {
+    "gulp": "^3.8.10",
+    "gulp-concat": "^2.4.2",
+    "gulp-compass": "^2.0.3"
+  },
+  "devDependencies": {
+    "gulp-notify": "^2.1.0"
+  }
+}
