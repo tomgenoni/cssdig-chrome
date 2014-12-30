@@ -34,7 +34,7 @@ dig_iframe.find('#cssdig-form').on('click', '.js-dig', function() {
 });
 
 // Open property when user clicks on it.
-dig_iframe.find('#report-properties').on('click', '.property', function() {
+dig_iframe.find('#report-tabs').on('click', '.property', function() {
     var target = $(this).next(".property-list");
 
     if ( target.hasClass("is-hidden") ) {
@@ -77,8 +77,10 @@ dig_iframe.find(".js-close-all").click(function(){
 });
 
 dig_iframe.find(".js-css-reset").click(function(){
+    dig_iframe.find(".tab-content .active").removeClass("active");
+    dig_iframe.find("#css-code .highlight").removeClass("highlight");
+    dig_iframe.find("#css-code .ruleset, #css-code .group").show();
     $(this).addClass("btn--disabled");
-    dig_iframe.find(".property-list li.active, #specificity-table tr.active").click();
 });
 
 dig_iframe.find('#cssdig-chrome').on('click', '.js-cancel', function() {

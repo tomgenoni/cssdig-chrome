@@ -167,7 +167,7 @@ function buildHTML(property_array, declaration_array) {
             entry_html += '</ul>';
             entry_html += '</div>';
 
-            $('#dig-iframe').contents().find("#report-properties .content").append(entry_html);
+            $('#dig-iframe').contents().find("#report-tabs .content").append(entry_html);
 
             declaration_array.splice(0, property_counter);
             property_counter = 1;
@@ -236,10 +236,10 @@ function parseCSS(css) {
     var syntax_highlighted_css = syntaxHighlight(final_beautified_css);
 
     setTimeout(function(){
-        $('#dig-iframe').contents().find("#report-css pre").append(syntax_highlighted_css);
+        $('#dig-iframe').contents().find("#css-code").append(syntax_highlighted_css);
 
         // Add selector class around each selector.
-        dig_iframe.find("#report-css pre .selectors").each(function(i,v) {
+        dig_iframe.find("#css-code .selectors").each(function(i,v) {
           var selectors = $(this).text();
           var arr = selectors.split(',');
           var html = [];

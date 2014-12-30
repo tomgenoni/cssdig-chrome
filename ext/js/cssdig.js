@@ -969,7 +969,7 @@ function buildHTML(property_array, declaration_array) {
             entry_html += '</ul>';
             entry_html += '</div>';
 
-            $('#dig-iframe').contents().find("#report-properties .content").append(entry_html);
+            $('#dig-iframe').contents().find("#report-tabs .content").append(entry_html);
 
             declaration_array.splice(0, property_counter);
             property_counter = 1;
@@ -1038,10 +1038,10 @@ function parseCSS(css) {
     var syntax_highlighted_css = syntaxHighlight(final_beautified_css);
 
     setTimeout(function(){
-        $('#dig-iframe').contents().find("#report-css pre").append(syntax_highlighted_css);
+        $('#dig-iframe').contents().find("#css-code").append(syntax_highlighted_css);
 
         // Add selector class around each selector.
-        dig_iframe.find("#report-css pre .selectors").each(function(i,v) {
+        dig_iframe.find("#css-code .selectors").each(function(i,v) {
           var selectors = $(this).text();
           var arr = selectors.split(',');
           var html = [];
@@ -1075,7 +1075,7 @@ function buildSpecificity() {
   var allSelectorsArr = [];
   var uniqueSelectorsArr = [];
   // Only grab selectors inside regular rules and @media rules, but no others.
-  var css = dig_iframe.find("#report-css pre > .ruleset > .selectors > .selector, #report-css pre > .at-media .selector");
+  var css = dig_iframe.find("#css-code > .ruleset > .selectors > .selector, #css-code > .at-media .selector");
 
   $.each(css,function(){
     var selectorText = $(this).text();
@@ -1165,7 +1165,7 @@ dig_iframe.find('#cssdig-form').on('click', '.js-dig', function() {
 });
 
 // Open property when user clicks on it.
-dig_iframe.find('#report-properties').on('click', '.property', function() {
+dig_iframe.find('#report-tabs').on('click', '.property', function() {
     var target = $(this).next(".property-list");
 
     if ( target.hasClass("is-hidden") ) {
@@ -1208,8 +1208,10 @@ dig_iframe.find(".js-close-all").click(function(){
 });
 
 dig_iframe.find(".js-css-reset").click(function(){
+    dig_iframe.find(".tab-content .active").removeClass("active");
+    dig_iframe.find("#css-code .highlight").removeClass("highlight");
+    dig_iframe.find("#css-code .ruleset, #css-code .group").show();
     $(this).addClass("btn--disabled");
-    dig_iframe.find(".property-list li.active, #specificity-table tr.active").click();
 });
 
 dig_iframe.find('#cssdig-chrome').on('click', '.js-cancel', function() {
@@ -1226,62 +1228,50 @@ function bindControls() {
   var dig_iframe = $('#dig-iframe').contents();
 
   // Click into report data to reveal locations in Combined CSS.
-  dig_iframe.find('#report-properties').on('click', '.property-list li', function() {
+  dig_iframe.find('#report-tabs').on('click', '.property-list li, #specificity-table tr', function() {
 
-    if ( $(this).hasClass("active") ) {
+    var $trigger = $(this);
 
-      $(this).removeClass("active");
-      dig_iframe.find("#report-css pre").unhighlight();
-      resetCSS();
-
-    } else {
-
-      if ( dig_iframe.find(".property-list li.active").length > 0 ) {
-        dig_iframe.find(".property-list li").removeClass("active");
-        dig_iframe.find("#report-css pre").unhighlight();
-        resetCSS();
-      }
-
-      $(this).addClass("active");
-
-      var property = $(this).find(".property-list__item").text();
-      dig_iframe.find("#report-css pre").highlight(" " + property, { caseSensitive: true });
-      dig_iframe.find(".ruleset, .group").hide();
-
-      dig_iframe.find(".highlight").each(function(){
-        $(this).closest(".group").fadeIn("fast");
-        $(this).closest(".ruleset").fadeIn("fast");
-      });
-
-      dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
+    var clicked_item = "declaration";
+    if ( $trigger[0].nodeName == "TR" ) {
+      clicked_item = "selector";
     }
-  });
 
-  // Click into report data to reveal locations in Combined CSS.
-  dig_iframe.find('#report-data').on('click', '#specificity-table tr', function() {
-
-    if ( $(this).hasClass("active") ) {
-
-      $(this).removeClass("active");
-      dig_iframe.find(".highlight").removeClass("highlight");
-      resetCSS();
-
+    if ( $trigger.hasClass("active") ) {
+      $trigger.removeClass("active");
     } else {
 
-      if ( dig_iframe.find("#specificity-table tr.active").length > 0 ) {
-        dig_iframe.find("#specificity-table tr.active").removeClass("active");
-        dig_iframe.find(".highlight").removeClass("highlight");
-        resetCSS();
-      }
-
-      $(this).addClass("active");
-
-      var property = $(this).find(".selector").text();
-      dig_iframe.find("#report-css pre .selector").each(function(){
-        if ( property == $(this).text() ) {
-          $(this).addClass("highlight")
+      if ( clicked_item == "declaration") {
+        if ( dig_iframe.find(".property-list li.active").length > 0 ) {
+          dig_iframe.find(".property-list li").removeClass("active");
+          dig_iframe.find(".js-css-reset").click();
         }
-      })
+
+        var item_text = $trigger.find(".property-list__item").text();
+        dig_iframe.find("#css-code .declaration").each(function(){
+          if ( item_text == ($(this).text()).trim() ) {
+            $(this).addClass("highlight")
+          }
+        })
+
+      } else {
+
+        if ( dig_iframe.find("#specificity-table tr.active").length > 0 ) {
+          dig_iframe.find("#specificity-table tr.active").removeClass("active");
+          dig_iframe.find(".js-css-reset").click();
+        }
+
+        var item_text = $(this).find(".selector").text();
+        dig_iframe.find("#css-code .selector").each(function(){
+          if ( item_text == $(this).text() ) {
+            $(this).addClass("highlight")
+          }
+        })
+
+      }
+
+      $(this).addClass("active");
+
       dig_iframe.find(".ruleset, .group").hide();
 
       dig_iframe.find(".highlight").each(function(){
@@ -1291,13 +1281,47 @@ function bindControls() {
 
       dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
     }
-
   });
 
-  function resetCSS() {
-      dig_iframe.find(".ruleset, .group").show();
-      dig_iframe.find(".js-css-reset").click();
-  }
+  // // Click into report data to reveal locations in Combined CSS.
+  // dig_iframe.find('#report-data').on('click', '#specificity-table tr', function() {
+
+  //   if ( $(this).hasClass("active") ) {
+
+  //     $(this).removeClass("active");
+  //     dig_iframe.find(".highlight").removeClass("highlight");
+  //     resetCSS();
+
+  //   } else {
+
+  //     if ( dig_iframe.find("#specificity-table tr.active").length > 0 ) {
+  //       dig_iframe.find("#specificity-table tr.active").removeClass("active");
+  //       dig_iframe.find(".highlight").removeClass("highlight");
+  //       resetCSS();
+  //     }
+
+  //     $(this).addClass("active");
+
+  //     var item_text = $(this).find(".selector").text();
+  //     dig_iframe.find("#css-code .selector").each(function(){
+  //       if ( item_text == $(this).text() ) {
+  //         $(this).addClass("highlight")
+  //       }
+  //     })
+  //     dig_iframe.find(".ruleset, .group").hide();
+
+  //     dig_iframe.find(".highlight").each(function(){
+  //       $(this).closest(".group").fadeIn("fast");
+  //       $(this).closest(".ruleset").fadeIn("fast");
+  //     });
+
+  //     dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
+  //   }
+
+  // });
+
+  // function resetCSS() {
+  // }
 }
 
 

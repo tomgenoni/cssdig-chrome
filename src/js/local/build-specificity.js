@@ -4,7 +4,7 @@ function buildSpecificity() {
   var allSelectorsArr = [];
   var uniqueSelectorsArr = [];
   // Only grab selectors inside regular rules and @media rules, but no others.
-  var css = dig_iframe.find("#report-css pre > .ruleset > .selectors > .selector, #report-css pre > .at-media .selector");
+  var css = dig_iframe.find("#css-code > .ruleset > .selectors > .selector, #css-code > .at-media .selector");
 
   $.each(css,function(){
     var selectorText = $(this).text();

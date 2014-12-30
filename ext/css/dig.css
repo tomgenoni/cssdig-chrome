@@ -281,7 +281,7 @@ header {
   flex: 1;
 }
 
-#report-properties,
+#report-tabs,
 #report-css {
   display: flex;
   flex-direction: column;
@@ -429,12 +429,12 @@ header:before {
   opacity: .7;
 }
 
-#report-properties {
+#report-tabs {
   width: 60%;
   border-right: 1px solid #f7f7f7;
   padding-right: 20px;
 }
-#report-properties .property {
+#report-tabs .property {
   font-size: 12px;
   display: flex;
   width: 100%;
@@ -445,28 +445,28 @@ header:before {
   -webkit-transition: background 0.2s ease-in-out;
   font-weight: 700;
 }
-#report-properties .property .property__name {
+#report-tabs .property .property__name {
   flex: 1;
   width: 100%;
   font-weight: 400;
   font-family: 'Source';
 }
-#report-properties .property .property__count {
+#report-tabs .property .property__count {
   text-align: right;
   color: #999;
   line-height: 16px;
 }
-#report-properties .property:hover {
+#report-tabs .property:hover {
   background: #e6e6eb;
   cursor: pointer;
 }
-#report-properties .property-list {
+#report-tabs .property-list {
   margin: 0 5px;
   overflow: hidden;
   max-height: 5000px;
   -webkit-transition: max-height 0.4s ease-in-out;
 }
-#report-properties .property-list li {
+#report-tabs .property-list li {
   display: flex;
   border-radius: 2px;
   padding: 3px 5px;
@@ -475,20 +475,20 @@ header:before {
   margin-bottom: 1px;
   -webkit-transition: background 0.2s ease-in-out;
 }
-#report-properties .property-list li:hover {
+#report-tabs .property-list li:hover {
   background: #e6e6eb;
 }
-#report-properties .property-list li.active {
+#report-tabs .property-list li.active {
   background: #238fb2;
   color: #fff;
 }
-#report-properties .property-list .property-list__color {
+#report-tabs .property-list .property-list__color {
   width: 20px;
   height: 12px;
   margin-right: 10px;
   box-shadow: 0 0 1px rgba(255, 255, 255, 0.2);
 }
-#report-properties .property-list .property-list__item {
+#report-tabs .property-list .property-list__item {
   flex: 1;
   white-space: nowrap;
   overflow: hidden;
@@ -496,12 +496,12 @@ header:before {
   font-size: 10px;
   font-family: 'Source';
 }
-#report-properties .property-list .property-list__count {
+#report-tabs .property-list .property-list__count {
   text-align: right;
   font-family: 'Source';
   font-size: 10px;
 }
-#report-properties .property-list.is-hidden {
+#report-tabs .property-list.is-hidden {
   max-height: 0;
 }
 
@@ -509,7 +509,7 @@ header:before {
   flex: 1;
   padding-left: 20px;
 }
-#report-css pre {
+#css-code {
   font: 12px/15px 'Source';
   color: #333;
   white-space: normal;
