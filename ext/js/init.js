@@ -18,7 +18,7 @@ $.get( chrome.extension.getURL('html/dig.html'), function( data ) {
     // Inject the css and javascript into the dig iframe.
     var dig_head = $('#dig-iframe').contents().find('head');
 
-    dig_head.append("<link href='"+chrome.extension.getURL('css/dig.css') + "' rel='stylesheet' type='text/css'>");
+    dig_head.append("<link href='"+chrome.extension.getURL('css/cssdig.css') + "' rel='stylesheet' type='text/css'>");
 
     // Inject combined js.
     dig_head.append("<script src='"+chrome.extension.getURL('js/cssdig.js')+"'></script>");
