@@ -30,8 +30,8 @@
   ],
   "web_accessible_resources": [
     "html/dig.html",
-    "css/dig.css",
     "i/icon48.png",
+    "css/cssdig.css",
     "js/cssdig.js"
   ]
 }
