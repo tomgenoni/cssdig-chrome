@@ -21,7 +21,6 @@ gulp.task('scripts', function() {
     './src/js/lib/cssbeautify.js',
     './src/js/lib/specificity.js',
     './src/js/lib/tablesorter.js',
-    './src/js/lib/jquery.highlight.js',
     './src/js/local/helpers.js',
     './src/js/local/syntax-highlight.js',
     './src/js/local/build-html.js',
