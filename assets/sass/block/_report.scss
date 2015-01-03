@@ -143,6 +143,16 @@
   margin-bottom: 5px;
 }
 
+#specificity-table-controls {
+  h3 {
+    cursor: pointer;
+  }
+
+  h3:nth-child(1) {
+    cursor: default;
+    flex: 1;
+  }
+}
 
 #specificity-table {
   width: 100%;

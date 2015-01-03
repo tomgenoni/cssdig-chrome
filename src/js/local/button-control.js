@@ -87,3 +87,4 @@ dig_iframe.find('#cssdig-chrome').on('click', '.js-cancel', function() {
     $("html").removeClass("dig");
     $("#dig-blanket").remove();
 });
+
