@@ -56,30 +56,37 @@ function buildSpecificity() {
 
         var sort_spec = dig_iframe.find("#specificity-table th:nth-child(2)");
 
-        var sorting = [[1,0]];
-        $(this).attr("class", "headerSortUp")
+        var sorting = [[1,1]];
+        $(this).attr("class", "headerSortDown")
 
-        if (sort_spec.hasClass("headerSortDown") ) {
-          sorting = [[1,1]];
-          $(this).attr("class", "headerSortDown")
+        if (sort_spec.hasClass("headerSortUp") ) {
+          sorting = [[1,0]];
+          $(this).attr("class", "headerSortUp")
         }
 
         dig_iframe.find("#specificity-table").trigger("sorton",[sorting]);
+
+        dig_iframe.find("#specificity-table-controls h3").removeClass("active");
+        $(this).addClass("active");
+
       });
 
       dig_iframe.find('#cssdig-chrome').on('click', '#sort-length', function() {
 
         var sort_spec = dig_iframe.find("#specificity-table th:nth-child(3)");
 
-        var sorting = [[2,0]];
-        $(this).attr("class", "headerSortUp");
+        var sorting = [[2,1]];
+        $(this).attr("class", "headerSortDown")
 
-        if (sort_spec.hasClass("headerSortDown") ) {
-          sorting = [[2,1]];
-          $(this).attr("class", "headerSortDown");
+        if (sort_spec.hasClass("headerSortUp") ) {
+          sorting = [[2,0]];
+          $(this).attr("class", "headerSortUp")
         }
 
         dig_iframe.find("#specificity-table").trigger("sorton",[sorting]);
+
+        dig_iframe.find("#specificity-table-controls h3").removeClass("active");
+        $(this).addClass("active");
       });
 
 
