@@ -61,7 +61,7 @@ function buildSpecificity() {
 
         if (sort_spec.hasClass("headerSortDown") ) {
           sorting = [[1,1]];
-          $(this).attr("class", "headerSortUp")
+          $(this).attr("class", "headerSortDown")
         }
 
         dig_iframe.find("#specificity-table").trigger("sorton",[sorting]);
@@ -72,11 +72,11 @@ function buildSpecificity() {
         var sort_spec = dig_iframe.find("#specificity-table th:nth-child(3)");
 
         var sorting = [[2,0]];
-        $(this).attr("class", "headerSortUp")
+        $(this).attr("class", "headerSortUp");
 
         if (sort_spec.hasClass("headerSortDown") ) {
           sorting = [[2,1]];
-          $(this).attr("class", "headerSortUp")
+          $(this).attr("class", "headerSortDown");
         }
 
         dig_iframe.find("#specificity-table").trigger("sorton",[sorting]);

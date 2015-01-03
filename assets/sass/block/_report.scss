@@ -144,23 +144,14 @@
 }
 
 #specificity-table-controls {
-  h3 {
-    cursor: pointer;
+
+  h3:nth-child(3) {
+    margin-right: 10px;
+    margin-left: 10px;
   }
 
-  h3:nth-child(1) {
-    cursor: default;
-    flex: 1;
-  }
-}
-
-#specificity-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 10px;
-  margin-top: -10px; // Compensate for border-spacing.
-
-  .header {
+  h3:nth-child(2),
+  h3:nth-child(3) {
     cursor: pointer;
     white-space: nowrap;
     -webkit-transition: all 0.2s ease-in-out;
@@ -174,7 +165,7 @@
       height: 0;
       border-left: 4px solid transparent;
       border-right: 4px solid transparent;
-      border-bottom: 4px solid #999;
+      border-top: 4px solid #999;
       margin-left: 4px;
     }
 
@@ -184,35 +175,36 @@
   }
 
   .headerSortUp:after {
-    border-top: none;
+    border-top: none !important;
     border-bottom: 4px solid #333;
   }
 
   .headerSortDown:after {
-    border-bottom: none;
-      border-top: 4px solid #333;
+    border-bottom: none !important;
+    border-top: 4px solid #333;
+  }
+
+  h3:nth-child(1) {
+    cursor: default;
+    flex: 1;
+  }
+}
+
+#specificity-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: -14px; // Compensate for border-spacing.
+
+  // Hiding the true controls of the table sorter. Using external triggers.
+  thead {
+    visibility: hidden;
   }
 
   td, th {
     padding: 4px 10px;
     font-size: 10px;
     text-align: right;
-  }
-
-  th {
-    text-align: left;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: .5;
-    padding-bottom: 8px;
-    padding-top: 0;
-
-    &:first-child {
-      padding-left: 0;
-    }
-  }
-
-  td {
     background: #f9f9f9;
     line-height: 15px;
 
@@ -222,6 +214,15 @@
     &:last-child {
       border-radius: 0 2px 2px 0;
     }
+  }
+
+  th {
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: .5;
+    padding-bottom: 0;
+    padding-top: 0;
   }
 
   tr:hover td {
