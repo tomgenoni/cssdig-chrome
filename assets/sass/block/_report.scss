@@ -122,6 +122,10 @@
     }
   }
 
+  .declaration {
+    opacity: .7;
+  }
+
   .at-media,
   .at-keyframes {
 
@@ -136,6 +140,7 @@
 
   .highlight {
     color: $color-primary;
+    opacity: 1;
   }
 }
 

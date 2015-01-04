@@ -18,6 +18,7 @@ function bindControls() {
 
     if ( $trigger.hasClass("active") ) {
       $trigger.removeClass("active");
+      dig_iframe.find(".js-css-reset").click();
     } else {
 
       if ( clicked_item == "declaration") {
@@ -61,45 +62,5 @@ function bindControls() {
       dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
     }
   });
-
-  // // Click into report data to reveal locations in Combined CSS.
-  // dig_iframe.find('#report-data').on('click', '#specificity-table tr', function() {
-
-  //   if ( $(this).hasClass("active") ) {
-
-  //     $(this).removeClass("active");
-  //     dig_iframe.find(".highlight").removeClass("highlight");
-  //     resetCSS();
-
-  //   } else {
-
-  //     if ( dig_iframe.find("#specificity-table tr.active").length > 0 ) {
-  //       dig_iframe.find("#specificity-table tr.active").removeClass("active");
-  //       dig_iframe.find(".highlight").removeClass("highlight");
-  //       resetCSS();
-  //     }
-
-  //     $(this).addClass("active");
-
-  //     var item_text = $(this).find(".selector").text();
-  //     dig_iframe.find("#css-code .selector").each(function(){
-  //       if ( item_text == $(this).text() ) {
-  //         $(this).addClass("highlight")
-  //       }
-  //     })
-  //     dig_iframe.find(".ruleset, .group").hide();
-
-  //     dig_iframe.find(".highlight").each(function(){
-  //       $(this).closest(".group").fadeIn("fast");
-  //       $(this).closest(".ruleset").fadeIn("fast");
-  //     });
-
-  //     dig_iframe.find(".js-css-reset").removeClass("btn--disabled");
-  //   }
-
-  // });
-
-  // function resetCSS() {
-  // }
 }
 
