@@ -7,7 +7,7 @@ $(document).ready(function(){
      return false;
   })
 
-  changeTab = function(trigger) {
+  function changeTab(trigger) {
      var tabSet =  trigger.closest(".tabs");
      tabSet.find(".tabs-nav li").removeClass("active");
      trigger.closest("li").addClass("active");

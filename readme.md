@@ -7,7 +7,7 @@ This Chrome Extension looks for stylesheets and style blocks on the webpage it's
 
 It works on most websites but there are some limitations.
 
-1. <b><code>@import</code> :</b> CSS in <code>@import</code> is currently ignored.
+1. <b><code>@import</code> :</b> CSS in <code>@import</code> is ignored.
 1. Content Security Policies: In some situations CSS Dig has make AJAX calls to retrieve the contents of the CSS files. Sites with strict Content Security Policies can block them. For example, facebook.com and github.com.
 1. <b><code>@media</code> :</b> CSS Dig will show selected properites inside <code>@media</code> blocks but it will include the entire block. Not sure how best to address this.
 
@@ -19,5 +19,4 @@ If the extension fails to complete check the Javascript Console to view any erro
 
 - [CSS Beautify](https://github.com/senchalabs/cssbeautify)
 - [Specificity](https://github.com/keeganstreet/specificity)
-- [jQuery Highlight](http://bartaz.github.io/sandbox.js/jquery.highlight.html)
 - [jQuery Tablesorter](http://tablesorter.com/docs/)

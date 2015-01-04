@@ -12,7 +12,6 @@
     <div id="cssdig">
       <div id="report-data">
 
-
         <div class="tabs" id="report-tabs">
           <ul class="tabs-nav">
             <li class="active"><a href="#tab-1" id="tab-properties">Properties</a></li>
@@ -29,11 +28,17 @@
             </div>
           </div>
           <div class="tab-content flex flex--column flex-1" style="display:none">
+            <div id="specificity-table-controls" class="flex">
+              <h3 class="flex-1">Selectors<span id="selector-length"></span></h3>
+              <h3 id="sort-specificity" class="active">Specificity</h3>
+              <h3 id="sort-length">Length</h3>
+            </div>
             <div class="flex-1 overflow-y">
               <table id="specificity-table">
+                  <!-- This is hidden, controls are external, triggering these -->
                 <thead>
                   <tr>
-                    <th>Selectors<span id="selector-length"></span></th>
+                    <th>Selectors</th>
                     <th>Specificity</th>
                     <th>Length</th>
                   </tr>

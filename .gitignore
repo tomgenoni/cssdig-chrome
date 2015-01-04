@@ -1,2 +1,6 @@
 *.scssc
 /node_modules
+
+# Ignore build files.
+ext/js/cssdig.js
+ext/css/cssdig.css
