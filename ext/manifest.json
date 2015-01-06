@@ -25,7 +25,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["js/cssdig.js"]
+      "js": ["js/jquery.min.js"]
     }
   ],
   "web_accessible_resources": [

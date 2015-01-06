@@ -17,7 +17,6 @@ function reportError(error) {
 
 gulp.task('scripts', function() {
   gulp.src([
-    './src/js/lib/jquery.min.js',
     './src/js/lib/cssbeautify.js',
     './src/js/lib/specificity.js',
     './src/js/lib/tablesorter.js',
