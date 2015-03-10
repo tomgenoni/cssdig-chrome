@@ -111,9 +111,11 @@ function displayForm() {
     // TODO: make this animated.
     $("#dig-blanket-loader").remove();
 
-    // This sets up animation.
-    var chrome_height = dig_iframe.find('#cssdig-chrome').height();
-    dig_iframe.find('#cssdig-chrome').height(chrome_height).css("visibility","visible");
+    // This sets up animation. Need a delay to get proper height.
+    setTimeout(function(){
+        var chrome_height = dig_iframe.find('#cssdig-chrome').height();
+        dig_iframe.find('#cssdig-chrome').height(chrome_height).css("visibility","visible");
+     }, 100);
 
 }
 
