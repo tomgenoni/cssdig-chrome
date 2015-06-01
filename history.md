@@ -4,7 +4,7 @@
 
 **Bugs**
 
-- Fixing height sizing of intial dialog.
+- Fixing height sizing of initial dialog.
 - Fixing flexbox spec change.
 
 ## v0.2
