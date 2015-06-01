@@ -149,6 +149,8 @@
 }
 
 #specificity-table-controls {
+  flex: none;
+  height: 24px;
 
   h3:nth-child(3) {
     margin-right: 10px;
@@ -229,6 +231,7 @@
     opacity: .5;
     padding-bottom: 0;
     padding-top: 0;
+    line-height: 0; // Collapes height.
   }
 
   tr:hover td {
