@@ -1,13 +1,13 @@
 # History
 
-## v0.2.1
+## v1.2.1
 
 **Bugs**
 
 - Fixing height sizing of initial dialog.
 - Fixing flexbox spec change.
 
-## v0.2
+## v1.2
 
 **Feature**
 
@@ -18,7 +18,7 @@
 
 - Now hiding unmatched rulesets in @media blocks.
 
-## v0.1
+## v1.0
 
 - First release
 - HTTPS support
