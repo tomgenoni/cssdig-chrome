@@ -3,6 +3,10 @@
   border-right: 1px solid darken($color-background, 3%);
   padding-right: 20px;
 
+  .tab-content {
+    overflow-y: scroll;
+  }
+
   .property {
     font-size: 12px;
     display: flex;
