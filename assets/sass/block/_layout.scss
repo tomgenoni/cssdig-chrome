@@ -51,6 +51,7 @@ header {
 
 .flex--column {
     flex-direction: column;
+    min-height: 0;
 }
 
 .anchor--right {

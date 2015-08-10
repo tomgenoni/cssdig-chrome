@@ -1,5 +1,11 @@
 # History
 
+## v1.2.2
+
+**Bugs**
+
+- Restoring scroll bars due to Chrome Flexbox change.
+
 ## v1.2.1
 
 **Bugs**
