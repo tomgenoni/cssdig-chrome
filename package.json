@@ -1,6 +1,6 @@
 {
   "name": "cssdig-chrome",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Chrome extension for analyzing CSS.",
   "main": "gulpfile.js",
   "repository": {
@@ -14,11 +14,9 @@
   },
   "homepage": "https://github.com/tomgenoni/cssdig-chrome",
   "dependencies": {
-    "gulp": "^3.8.10",
+    "gulp": "^3.9.0",
     "gulp-concat": "^2.4.2",
-    "gulp-compass": "^2.0.3"
-  },
-  "devDependencies": {
+    "gulp-sass": "^2.2.0",
     "gulp-notify": "^2.1.0"
   }
 }

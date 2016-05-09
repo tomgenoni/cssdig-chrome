@@ -1,5 +1,17 @@
 # History
 
+## v1.2.4
+
+**Bugs**
+
+- Fixing monospace font loading issue.
+
+## v1.2.3
+
+**Bugs**
+
+- Fixing flex:none issue.
+
 ## v1.2.2
 
 **Bugs**

@@ -2,9 +2,10 @@
   width: 60%;
   border-right: 1px solid darken($color-background, 3%);
   padding-right: 20px;
+  flex: none;
 
   .property {
-    font-size: 12px;
+    font-size: 11px;
     display: flex;
     width: 100%;
     margin: 0 0 5px;
@@ -18,7 +19,7 @@
       flex: 1;
       width: 100%;
       font-weight: 400;
-      font-family: 'Source';
+      font-family: Monaco, monospace;
     }
     .property__count {
       text-align: right;
@@ -70,12 +71,12 @@
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: 10px;
-      font-family: 'Source';
+      font-family: Monaco, monospace;
     }
 
     .property-list__count {
       text-align: right;
-      font-family: 'Source';
+      font-family: Monaco, monospace;
       font-size: 10px;
     }
 
@@ -90,7 +91,7 @@
   padding-left: 20px;
 
   pre {
-    font: 12px/15px 'Source';
+    font: 12px/15px Monaco, monospace;
     color: #333;
     white-space: normal;
   }
@@ -257,12 +258,12 @@
     font-size: 12px;
     word-break: break-word;
     font-weight: 400;
-    font-family: 'Source';
+    font-family: Monaco, monospace;
   }
 
   .specificity,
   .length {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 14px;
     font-weight: 700;
     width: 1%;

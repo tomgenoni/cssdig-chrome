@@ -1,6 +1,6 @@
 var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
-    compass     = require('gulp-compass'),
+    sass        = require('gulp-sass'),
     notify      = require('gulp-notify');
 
 function swallowError(error) {
@@ -33,17 +33,13 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./ext/js/'))
 });
 
-//  compass: compile sass to css
+//  compile sass to css
 //===========================================
 
-gulp.task('compass', function() {
-  gulp.src('./assets/sass/*.scss')
-    .pipe(compass({
-      config_file: './config.rb',
-      css: './ext/css/',
-      sass: './assets/sass'
-    }))
-    .on('error', reportError);
+gulp.task('sass', function () {
+  gulp.src('assets/sass/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('ext/css/'));
 });
 
 
@@ -52,7 +48,7 @@ gulp.task('compass', function() {
 
 gulp.task('watch', function() {
   // watch task for sass
-  gulp.watch('./assets/sass/**/*.scss', ['compass']);
+  gulp.watch('./assets/sass/**/*.scss', ['sass']);
   gulp.watch('./src/js/**/*.js', ['scripts']);
 
 });
@@ -60,4 +56,4 @@ gulp.task('watch', function() {
 //  Default Gulp Task
 //===========================================
 
-gulp.task('default', ['compass', 'scripts', 'watch']);
+gulp.task('default', ['sass', 'scripts', 'watch']);
