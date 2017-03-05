@@ -10,7 +10,6 @@ html.dig #dig-iframe {
     background: transparent !important
 }
 
-
 html.dig #dig-blanket {
     display: flex !important;
     justify-content: center !important;
@@ -35,4 +34,8 @@ html.dig #dig-blanket-loader {
     background-size: 100% auto !important;
     height: 64px !important;
     width: 64px !important;
+}
+
+html.dig #dig-blanket-loader + #dig-iframe  {
+  display: none;
 }
