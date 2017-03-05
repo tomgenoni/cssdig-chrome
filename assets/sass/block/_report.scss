@@ -16,7 +16,7 @@
     background: #f9f9f9;
     padding: 3px 10px;
     border-radius: 3px;
-    -webkit-transition: background 0.2s ease-in-out;
+    -webkit-transition: background 0.1s ease-in-out;
     font-weight: 700;
 
     .property__name {
@@ -50,7 +50,7 @@
       cursor: pointer;
       color: #333;
       margin-bottom: 1px;
-      -webkit-transition: background 0.2s ease-in-out;
+      -webkit-transition: background 0.1s ease-in-out;
 
       &:hover {
         background: #e6e6eb;
@@ -166,7 +166,7 @@
   h3:nth-child(3) {
     cursor: pointer;
     white-space: nowrap;
-    -webkit-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
 
     &:after {
       position: relative;

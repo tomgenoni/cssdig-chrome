@@ -1,5 +1,16 @@
 # History
 
+## v1.2.5
+
+**Bugs**
+
+- Merging fix on scrolling of `.tab-content` (#10).
+- Merging fix on perspective property on body (#7).
+
+**Changes**
+
+- Minor CSS updates
+
 ## v1.2.4
 
 **Bugs**
