@@ -4,6 +4,10 @@
   padding-right: 20px;
   flex: none;
 
+  .tab-content {
+    overflow-y: scroll;
+  }
+
   .property {
     font-size: 11px;
     display: flex;
