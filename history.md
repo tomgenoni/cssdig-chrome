@@ -1,5 +1,11 @@
 # History
 
+## v1.2.6
+
+**Bugs**
+
+- Fixing overflow issue that hid 'Reset' button.
+
 ## v1.2.5
 
 **Bugs**
