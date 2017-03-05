@@ -20,6 +20,7 @@ html.dig #dig-blanket {
     right: 0 !important;
     top: 0 !important;
     left: 0 !important;
+    height: 100vh;
     background: rgba(255,255,255,.7) !important;
     z-index: 10000000000 !important;
 }
