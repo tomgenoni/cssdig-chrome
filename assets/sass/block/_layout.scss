@@ -6,7 +6,6 @@
     background: $color-background url(../i/icon48.png) 20px 20px no-repeat;
     background-size: 24px auto;
     padding: 60px 20px 20px;
-    overflow: scroll;
 }
 
 header {
@@ -17,6 +16,7 @@ header {
 #report-data {
     display: flex;
     flex: 1;
+    height: 100%;
 }
 
 #report-tabs,
